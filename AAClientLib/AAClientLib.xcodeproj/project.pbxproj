@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E13BEB2D16E4CB7600E70FB7 /* AAClientLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E10ED62E16E376C400AD5096 /* AAClientLibTests.m */; };
+		E13BEB2E16E4CB7B00E70FB7 /* libAAClientLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BC7E416793517008D6BB4 /* libAAClientLib.a */; };
+		E19BC7E816793517008D6BB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BC7E716793517008D6BB4 /* Foundation.framework */; };
+		E19BC7ED16793517008D6BB4 /* AAClientLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E19BC7EC16793517008D6BB4 /* AAClientLib.h */; };
+		E19BC7EF16793517008D6BB4 /* AAClientLib.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BC7EE16793517008D6BB4 /* AAClientLib.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E19BC7E216793517008D6BB4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				E19BC7ED16793517008D6BB4 /* AAClientLib.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E10ED62D16E376C400AD5096 /* AAClientLibTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AAClientLibTests.h; path = AAClientLibTest/AAClientLibTests.h; sourceTree = "<group>"; };
+		E10ED62E16E376C400AD5096 /* AAClientLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AAClientLibTests.m; path = AAClientLibTest/AAClientLibTests.m; sourceTree = "<group>"; };
+		E10ED65F16E378C800AD5096 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E10ED68616E3935200AD5096 /* AAClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AAClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10ED68816E3935200AD5096 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E10ED68D16E3935200AD5096 /* AAClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AAClientTests-Info.plist"; sourceTree = "<group>"; };
+		E19BC7E416793517008D6BB4 /* libAAClientLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAAClientLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19BC7E716793517008D6BB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E19BC7EC16793517008D6BB4 /* AAClientLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAClientLib.h; sourceTree = "<group>"; };
+		E19BC7EE16793517008D6BB4 /* AAClientLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAClientLib.m; sourceTree = "<group>"; };
+		E1A93872190D3FC700FC2F9A /* AAPilotNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPilotNotification.h; sourceTree = "<group>"; };
+		E1A93873190D3FC700FC2F9A /* CaptainHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
+		E1A93877190D40E400FC2F9A /* NSDistributedNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NSDistributedNotificationCenter.h; path = ../../../Common/Foundation/NSDistributedNotificationCenter.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E10ED68216E3935200AD5096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E13BEB2E16E4CB7B00E70FB7 /* libAAClientLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19BC7E116793517008D6BB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19BC7E816793517008D6BB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E10ED62C16E376AC00AD5096 /* AAClientLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				E10ED62D16E376C400AD5096 /* AAClientLibTests.h */,
+				E10ED62E16E376C400AD5096 /* AAClientLibTests.m */,
+				E10ED68C16E3935200AD5096 /* Supporting Files */,
+			);
+			name = AAClientLibTests;
+			sourceTree = "<group>";
+		};
+		E10ED68C16E3935200AD5096 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E10ED68D16E3935200AD5096 /* AAClientTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			path = AAClientTests;
+			sourceTree = "<group>";
+		};
+		E19BC7D916793517008D6BB4 = {
+			isa = PBXGroup;
+			children = (
+				E19BC7E916793517008D6BB4 /* AAClientLib */,
+				E10ED62C16E376AC00AD5096 /* AAClientLibTests */,
+				E19BC7E616793517008D6BB4 /* Frameworks */,
+				E19BC7E516793517008D6BB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E19BC7E516793517008D6BB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E19BC7E416793517008D6BB4 /* libAAClientLib.a */,
+				E10ED68616E3935200AD5096 /* AAClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E19BC7E616793517008D6BB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E19BC7E716793517008D6BB4 /* Foundation.framework */,
+				E10ED65F16E378C800AD5096 /* CoreGraphics.framework */,
+				E10ED68816E3935200AD5096 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E19BC7E916793517008D6BB4 /* AAClientLib */ = {
+			isa = PBXGroup;
+			children = (
+				E19BC7EC16793517008D6BB4 /* AAClientLib.h */,
+				E19BC7EE16793517008D6BB4 /* AAClientLib.m */,
+				E19BC7EA16793517008D6BB4 /* Supporting Files */,
+				E1A93871190D3FC700FC2F9A /* Header */,
+			);
+			path = AAClientLib;
+			sourceTree = "<group>";
+		};
+		E19BC7EA16793517008D6BB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1A93871190D3FC700FC2F9A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E1A93872190D3FC700FC2F9A /* AAPilotNotification.h */,
+				E1A93873190D3FC700FC2F9A /* CaptainHook.h */,
+				E1A93874190D3FC700FC2F9A /* Foundation */,
+			);
+			path = Header;
+			sourceTree = SOURCE_ROOT;
+		};
+		E1A93874190D3FC700FC2F9A /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				E1A93877190D40E400FC2F9A /* NSDistributedNotificationCenter.h */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E10ED68516E3935200AD5096 /* AAClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10ED69516E3935200AD5096 /* Build configuration list for PBXNativeTarget "AAClientTests" */;
+			buildPhases = (
+				E10ED68116E3935200AD5096 /* Sources */,
+				E10ED68216E3935200AD5096 /* Frameworks */,
+				E10ED68316E3935200AD5096 /* Resources */,
+				E10ED68416E3935200AD5096 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AAClientTests;
+			productName = AAClientTests;
+			productReference = E10ED68616E3935200AD5096 /* AAClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E19BC7E316793517008D6BB4 /* AAClientLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19BC7F216793517008D6BB4 /* Build configuration list for PBXNativeTarget "AAClientLib" */;
+			buildPhases = (
+				E19BC7E016793517008D6BB4 /* Sources */,
+				E19BC7E116793517008D6BB4 /* Frameworks */,
+				E19BC7E216793517008D6BB4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AAClientLib;
+			productName = AAClientLib;
+			productReference = E19BC7E416793517008D6BB4 /* libAAClientLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E19BC7DB16793517008D6BB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Andreas Weinlein";
+			};
+			buildConfigurationList = E19BC7DE16793517008D6BB4 /* Build configuration list for PBXProject "AAClientLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E19BC7D916793517008D6BB4;
+			productRefGroup = E19BC7E516793517008D6BB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E19BC7E316793517008D6BB4 /* AAClientLib */,
+				E10ED68516E3935200AD5096 /* AAClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E10ED68316E3935200AD5096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E10ED68416E3935200AD5096 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E10ED68116E3935200AD5096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E13BEB2D16E4CB7600E70FB7 /* AAClientLibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19BC7E016793517008D6BB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19BC7EF16793517008D6BB4 /* AAClientLib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E10ED69616E3935200AD5096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = Header;
+				INFOPLIST_FILE = "AAClientTests/AAClientTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E10ED69716E3935200AD5096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = Header;
+				INFOPLIST_FILE = "AAClientTests/AAClientTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E19BC7F016793517008D6BB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = Header;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E19BC7F116793517008D6BB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = Header;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E19BC7F316793517008D6BB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AAClientLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				HEADER_SEARCH_PATHS = Header;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E19BC7F416793517008D6BB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AAClientLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				HEADER_SEARCH_PATHS = Header;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E10ED69516E3935200AD5096 /* Build configuration list for PBXNativeTarget "AAClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10ED69616E3935200AD5096 /* Debug */,
+				E10ED69716E3935200AD5096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19BC7DE16793517008D6BB4 /* Build configuration list for PBXProject "AAClientLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19BC7F016793517008D6BB4 /* Debug */,
+				E19BC7F116793517008D6BB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19BC7F216793517008D6BB4 /* Build configuration list for PBXNativeTarget "AAClientLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19BC7F316793517008D6BB4 /* Debug */,
+				E19BC7F416793517008D6BB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E19BC7DB16793517008D6BB4 /* Project object */;
+}

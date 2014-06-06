@@ -1,0 +1,991 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E102C23E169DDEF800612DC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102C23D169DDEF800612DC0 /* Foundation.framework */; };
+		E102C24F169DE09800612DC0 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E102C24E169DE09800612DC0 /* main.mm */; };
+		E102C26216A02CB600612DC0 /* AAExecutionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E102C26116A02CB600612DC0 /* AAExecutionHandler.m */; };
+		E1056E6F1700AC86000BCCB9 /* UIAElement+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E1056E6E1700AC4A000BCCB9 /* UIAElement+SmartExecution.m */; };
+		E1069DC4170466BB0087C32E /* UIATarget+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */; };
+		E1085ADB16A84C0B00DA920A /* AAOpenCloseExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1085ADA16A84C0B00DA920A /* AAOpenCloseExecutor.m */; };
+		E10F22F4190EF2DE00FC2F9A /* libCCGraphT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F964FC171EFBBD005AE592 /* libCCGraphT.a */; };
+		E111704B171337B700A3FCDF /* AASEElement.m in Sources */ = {isa = PBXBuildFile; fileRef = E111704A171337B700A3FCDF /* AASEElement.m */; };
+		E11632EE16B7FD62006300E0 /* AAAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E11632ED16B7FD62006300E0 /* AAAlertManager.m */; };
+		E11632FB16B82FA8006300E0 /* AAGenericAlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E11632FA16B82FA8006300E0 /* AAGenericAlertHandler.m */; };
+		E11632FE16B85486006300E0 /* AAAppStoreAlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E11632FD16B85486006300E0 /* AAAppStoreAlertHandler.m */; };
+		E121C9E817464604000FB1B9 /* UIAElementNil+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E121C9E717464603000FB1B9 /* UIAElementNil+Fixes.m */; };
+		E12445A5170D77EF00155157 /* AASEView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12445A4170D77EF00155157 /* AASEView.m */; };
+		E12445A8170DB6A400155157 /* UIAElementArray+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E12445A7170DB6A400155157 /* UIAElementArray+SmartExecution.m */; };
+		E1251A1817229DD000D28DE0 /* AASEGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = E1251A1717229DD000D28DE0 /* AASEGraph.m */; };
+		E1251A1B172587FF00D28DE0 /* UIAElementNil+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E1251A1A172587FF00D28DE0 /* UIAElementNil+SmartExecution.m */; };
+		E15D2CF016E755C500A7890F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFC78516A4727E003E4E4B /* UIKit.framework */; };
+		E15D2CF116E755C500A7890F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102C23D169DDEF800612DC0 /* Foundation.framework */; };
+		E15D2D0C16E75ADD00A7890F /* UIAutomation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15D2D0A16E75AA600A7890F /* UIAutomation.framework */; };
+		E15D2D0F16E7A04B00A7890F /* AASmartExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E15D2D0E16E7A04B00A7890F /* AASmartExecutor.m */; };
+		E18244EF171BF8C70095E774 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E102C24E169DE09800612DC0 /* main.mm */; };
+		E18244F0171BF8C70095E774 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E195AF4F16B9A87C0065076C /* DDLog.m */; };
+		E18244F1171BF8C70095E774 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E195AF4D16B9A87C0065076C /* DDASLLogger.m */; };
+		E18244F2171BF8C70095E774 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A9422316BAB52F002F7EF7 /* NSData+Base64.m */; };
+		E18244F3171BF8C70095E774 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC62DA16E8CED40035B2C1 /* NSArray+Random.m */; };
+		E18244F4171BF8C70095E774 /* AAExecutionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E102C26116A02CB600612DC0 /* AAExecutionHandler.m */; };
+		E18244F5171BF8C70095E774 /* AARandomExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E102C254169DE0D800612DC0 /* AARandomExecutor.m */; };
+		E18244F6171BF8C70095E774 /* AAAppExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FFC78116A46AB7003E4E4B /* AAAppExecutor.m */; };
+		E18244F7171BF8C70095E774 /* AAAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E11632ED16B7FD62006300E0 /* AAAlertManager.m */; };
+		E18244F8171BF8C70095E774 /* AAGenericAlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E11632FA16B82FA8006300E0 /* AAGenericAlertHandler.m */; };
+		E18244F9171BF8C70095E774 /* AAAppStoreAlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E11632FD16B85486006300E0 /* AAAppStoreAlertHandler.m */; };
+		E18244FB171BF8C70095E774 /* AASmartExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E15D2D0E16E7A04B00A7890F /* AASmartExecutor.m */; };
+		E18244FC171BF8C70095E774 /* AAOpenCloseExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1085ADA16A84C0B00DA920A /* AAOpenCloseExecutor.m */; };
+		E18244FE171BF8C70095E774 /* UIAutomation.m in Sources */ = {isa = PBXBuildFile; fileRef = E102C256169DE0E700612DC0 /* UIAutomation.m */; };
+		E18244FF171BF8C70095E774 /* UIATarget+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */; };
+		E1824500171BF8C70095E774 /* UIAElement+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E1056E6E1700AC4A000BCCB9 /* UIAElement+SmartExecution.m */; };
+		E1824501171BF8C70095E774 /* AASEView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12445A4170D77EF00155157 /* AASEView.m */; };
+		E1824502171BF8C70095E774 /* UIAElementArray+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E12445A7170DB6A400155157 /* UIAElementArray+SmartExecution.m */; };
+		E1824503171BF8C70095E774 /* AASEElement.m in Sources */ = {isa = PBXBuildFile; fileRef = E111704A171337B700A3FCDF /* AASEElement.m */; };
+		E1824504171BF8C70095E774 /* UIAElement+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D620D5171BEA8D00CCF6C6 /* UIAElement+Fixes.m */; };
+		E1824506171BF8C70095E774 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFC78516A4727E003E4E4B /* UIKit.framework */; };
+		E1824507171BF8C70095E774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFC78316A47158003E4E4B /* CoreGraphics.framework */; };
+		E1824508171BF8C70095E774 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102C23D169DDEF800612DC0 /* Foundation.framework */; };
+		E182450A171BF8C70095E774 /* libAAClientLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FEAC5016A5C907003412E2 /* libAAClientLib.a */; };
+		E1824513171BF9950095E774 /* UIAutomation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15D2D0A16E75AA600A7890F /* UIAutomation.framework */; };
+		E194416B171F44C500DC4609 /* NSSet+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = E194416A171F44C500DC4609 /* NSSet+Random.m */; };
+		E195AF5016B9A87C0065076C /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E195AF4D16B9A87C0065076C /* DDASLLogger.m */; };
+		E195AF5116B9A87C0065076C /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E195AF4F16B9A87C0065076C /* DDLog.m */; };
+		E1A9422416BAB52F002F7EF7 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A9422316BAB52F002F7EF7 /* NSData+Base64.m */; };
+		E1BC62DB16E8CED40035B2C1 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC62DA16E8CED40035B2C1 /* NSArray+Random.m */; };
+		E1BF84F2171BFE75002A4500 /* AASEView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12445A4170D77EF00155157 /* AASEView.m */; };
+		E1BF84F3171BFE75002A4500 /* AASEElement.m in Sources */ = {isa = PBXBuildFile; fileRef = E111704A171337B700A3FCDF /* AASEElement.m */; };
+		E1BF84F5171BFE75002A4500 /* UIAElement+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E1056E6E1700AC4A000BCCB9 /* UIAElement+SmartExecution.m */; };
+		E1BF84F6171BFE75002A4500 /* UIAElementArray+SmartExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = E12445A7170DB6A400155157 /* UIAElementArray+SmartExecution.m */; };
+		E1BF84F7171BFE8F002A4500 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E195AF4F16B9A87C0065076C /* DDLog.m */; };
+		E1BF84F8171BFEE9002A4500 /* UIATarget+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */; };
+		E1BF84F9171BFEE9002A4500 /* UIAElement+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D620D5171BEA8D00CCF6C6 /* UIAElement+Fixes.m */; };
+		E1BF84FA171BFEE9002A4500 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC62DA16E8CED40035B2C1 /* NSArray+Random.m */; };
+		E1BF8500171C5048002A4500 /* SEUIAElementArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF84FF171C5048002A4500 /* SEUIAElementArrayTest.m */; };
+		E1D620CD171BE0B400CCF6C6 /* AASEViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D620CC171BE0B400CCF6C6 /* AASEViewTest.m */; };
+		E1D620D0171BE13A00CCF6C6 /* UIAWindowMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D620CF171BE13A00CCF6C6 /* UIAWindowMock.m */; };
+		E1D620D3171BE3BC00CCF6C6 /* UIAElementMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D620D2171BE3BC00CCF6C6 /* UIAElementMock.m */; };
+		E1D620D6171BEA8D00CCF6C6 /* UIAElement+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D620D5171BEA8D00CCF6C6 /* UIAElement+Fixes.m */; };
+		E1DF0A2816A2C957009FFC14 /* AARandomExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E102C254169DE0D800612DC0 /* AARandomExecutor.m */; };
+		E1DF0A2916A2C957009FFC14 /* UIAutomation.m in Sources */ = {isa = PBXBuildFile; fileRef = E102C256169DE0E700612DC0 /* UIAutomation.m */; };
+		E1DF0A2A16A2C980009FFC14 /* UIAutomation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102C236169DDE9E00612DC0 /* UIAutomation.framework */; };
+		E1F964FA171ED5E9005AE592 /* AASEOtherApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F964F9171ED5E9005AE592 /* AASEOtherApplicationView.m */; };
+		E1F964FB171ED5E9005AE592 /* AASEOtherApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F964F9171ED5E9005AE592 /* AASEOtherApplicationView.m */; };
+		E1F96500171EFEF7005AE592 /* UIACustomElementArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F964FF171EFEF7005AE592 /* UIACustomElementArray.m */; };
+		E1F96501171EFEF7005AE592 /* UIACustomElementArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F964FF171EFEF7005AE592 /* UIACustomElementArray.m */; };
+		E1FEAC5116A5C907003412E2 /* libAAClientLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FEAC5016A5C907003412E2 /* libAAClientLib.a */; };
+		E1FFC78216A46AB7003E4E4B /* AAAppExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FFC78116A46AB7003E4E4B /* AAAppExecutor.m */; };
+		E1FFC78416A47158003E4E4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFC78316A47158003E4E4B /* CoreGraphics.framework */; };
+		E1FFC78716A4728B003E4E4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FFC78516A4727E003E4E4B /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E102C239169DDEF800612DC0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		E182450B171BF8C70095E774 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E102C226169DC3E500612DC0 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		E102C235169DDE9100612DC0 /* Header */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Header; sourceTree = "<group>"; };
+		E102C236169DDE9E00612DC0 /* UIAutomation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIAutomation.framework; path = Frameworks/UIAutomation.framework; sourceTree = "<group>"; };
+		E102C23B169DDEF800612DC0 /* aaexecutord */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = aaexecutord; sourceTree = BUILT_PRODUCTS_DIR; };
+		E102C23D169DDEF800612DC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E102C24E169DE09800612DC0 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		E102C252169DE0C700612DC0 /* AAAppExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAppExecutor.h; sourceTree = "<group>"; };
+		E102C253169DE0D800612DC0 /* AARandomExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AARandomExecutor.h; sourceTree = "<group>"; };
+		E102C254169DE0D800612DC0 /* AARandomExecutor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AARandomExecutor.m; sourceTree = "<group>"; };
+		E102C255169DE0E700612DC0 /* UIAutomation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIAutomation.h; sourceTree = "<group>"; };
+		E102C256169DE0E700612DC0 /* UIAutomation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIAutomation.m; sourceTree = "<group>"; };
+		E102C26016A02CB600612DC0 /* AAExecutionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAExecutionHandler.h; sourceTree = "<group>"; };
+		E102C26116A02CB600612DC0 /* AAExecutionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAExecutionHandler.m; sourceTree = "<group>"; };
+		E1056E6E1700AC4A000BCCB9 /* UIAElement+SmartExecution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAElement+SmartExecution.m"; sourceTree = "<group>"; };
+		E1069DC2170466BB0087C32E /* UIATarget+Fixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIATarget+Fixes.h"; sourceTree = "<group>"; };
+		E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIATarget+Fixes.m"; sourceTree = "<group>"; };
+		E1085AD916A84C0B00DA920A /* AAOpenCloseExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOpenCloseExecutor.h; sourceTree = "<group>"; };
+		E1085ADA16A84C0B00DA920A /* AAOpenCloseExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOpenCloseExecutor.m; sourceTree = "<group>"; };
+		E1089E181715A70400325082 /* AASmartExecution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AASmartExecution.h; sourceTree = "<group>"; };
+		E1117049171337B700A3FCDF /* AASEElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASEElement.h; sourceTree = "<group>"; };
+		E111704A171337B700A3FCDF /* AASEElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASEElement.m; sourceTree = "<group>"; };
+		E11632E516B6C764006300E0 /* de.fau.cs.dios.pilot.aaexecutord.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de.fau.cs.dios.pilot.aaexecutord.plist; path = layout/Library/LaunchDaemons/de.fau.cs.dios.pilot.aaexecutord.plist; sourceTree = "<group>"; };
+		E11632EC16B7FD62006300E0 /* AAAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAlertManager.h; sourceTree = "<group>"; };
+		E11632ED16B7FD62006300E0 /* AAAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAlertManager.m; sourceTree = "<group>"; };
+		E11632F816B82D6A006300E0 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = "<group>"; };
+		E11632F916B82FA8006300E0 /* AAGenericAlertHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAGenericAlertHandler.h; sourceTree = "<group>"; };
+		E11632FA16B82FA8006300E0 /* AAGenericAlertHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAGenericAlertHandler.m; sourceTree = "<group>"; };
+		E11632FC16B85486006300E0 /* AAAppStoreAlertHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAppStoreAlertHandler.h; sourceTree = "<group>"; };
+		E11632FD16B85486006300E0 /* AAAppStoreAlertHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAppStoreAlertHandler.m; sourceTree = "<group>"; };
+		E121C9E617464603000FB1B9 /* UIAElementNil+Fixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAElementNil+Fixes.h"; sourceTree = "<group>"; };
+		E121C9E717464603000FB1B9 /* UIAElementNil+Fixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAElementNil+Fixes.m"; sourceTree = "<group>"; };
+		E12445A3170D77EF00155157 /* AASEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASEView.h; sourceTree = "<group>"; };
+		E12445A4170D77EF00155157 /* AASEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASEView.m; sourceTree = "<group>"; };
+		E12445A6170DB6A400155157 /* UIAElementArray+SmartExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAElementArray+SmartExecution.h"; sourceTree = "<group>"; };
+		E12445A7170DB6A400155157 /* UIAElementArray+SmartExecution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAElementArray+SmartExecution.m"; sourceTree = "<group>"; };
+		E1251A1617229DD000D28DE0 /* AASEGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASEGraph.h; sourceTree = "<group>"; };
+		E1251A1717229DD000D28DE0 /* AASEGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASEGraph.m; sourceTree = "<group>"; };
+		E1251A19172587FF00D28DE0 /* UIAElementNil+SmartExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAElementNil+SmartExecution.h"; sourceTree = "<group>"; };
+		E1251A1A172587FF00D28DE0 /* UIAElementNil+SmartExecution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAElementNil+SmartExecution.m"; sourceTree = "<group>"; };
+		E12FA14016CE51BB004E4594 /* entitlements.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = entitlements.xml; sourceTree = "<group>"; };
+		E1332A341928C41F00FC2F9A /* updateUIAutomationFramework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = updateUIAutomationFramework.sh; sourceTree = "<group>"; };
+		E15D2CED16E755C500A7890F /* AAExecutorDaemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AAExecutorDaemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E15D2CF416E755C500A7890F /* AAExecutorDaemonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AAExecutorDaemonTests-Info.plist"; sourceTree = "<group>"; };
+		E15D2D0A16E75AA600A7890F /* UIAutomation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIAutomation.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/Developer/Library/PrivateFrameworks/UIAutomation.framework; sourceTree = DEVELOPER_DIR; };
+		E15D2D0D16E7A04B00A7890F /* AASmartExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASmartExecutor.h; sourceTree = "<group>"; };
+		E15D2D0E16E7A04B00A7890F /* AASmartExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASmartExecutor.m; sourceTree = "<group>"; };
+		E182450F171BF8C70095E774 /* aaexecutord copy */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = "aaexecutord copy"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1944169171F44C500DC4609 /* NSSet+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Random.h"; sourceTree = "<group>"; };
+		E194416A171F44C500DC4609 /* NSSet+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Random.m"; sourceTree = "<group>"; };
+		E195AF4C16B9A87C0065076C /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = ../Common/CocoaLumberjack/Lumberjack/DDASLLogger.h; sourceTree = "<group>"; };
+		E195AF4D16B9A87C0065076C /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = ../Common/CocoaLumberjack/Lumberjack/DDASLLogger.m; sourceTree = "<group>"; };
+		E195AF4E16B9A87C0065076C /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = ../Common/CocoaLumberjack/Lumberjack/DDLog.h; sourceTree = "<group>"; };
+		E195AF4F16B9A87C0065076C /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = ../Common/CocoaLumberjack/Lumberjack/DDLog.m; sourceTree = "<group>"; };
+		E195AF5316B9B1280065076C /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = AAExecutorDaemon/Common.h; sourceTree = "<group>"; };
+		E1A9422216BAB52F002F7EF7 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../Common/NSData+Base64/NSData+Base64.h"; sourceTree = "<group>"; };
+		E1A9422316BAB52F002F7EF7 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../Common/NSData+Base64/NSData+Base64.m"; sourceTree = "<group>"; };
+		E1BC62D816E890DA0035B2C1 /* UIAElement+SmartExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAElement+SmartExecution.h"; sourceTree = "<group>"; };
+		E1BC62D916E8CED40035B2C1 /* NSArray+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Random.h"; sourceTree = "<group>"; };
+		E1BC62DA16E8CED40035B2C1 /* NSArray+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Random.m"; sourceTree = "<group>"; };
+		E1BF84FE171C5048002A4500 /* SEUIAElementArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUIAElementArrayTest.h; sourceTree = "<group>"; };
+		E1BF84FF171C5048002A4500 /* SEUIAElementArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEUIAElementArrayTest.m; sourceTree = "<group>"; };
+		E1D620CB171BE0B400CCF6C6 /* AASEViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASEViewTest.h; sourceTree = "<group>"; };
+		E1D620CC171BE0B400CCF6C6 /* AASEViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASEViewTest.m; sourceTree = "<group>"; };
+		E1D620CE171BE13A00CCF6C6 /* UIAWindowMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAWindowMock.h; sourceTree = "<group>"; };
+		E1D620CF171BE13A00CCF6C6 /* UIAWindowMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAWindowMock.m; sourceTree = "<group>"; };
+		E1D620D1171BE3BC00CCF6C6 /* UIAElementMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAElementMock.h; sourceTree = "<group>"; };
+		E1D620D2171BE3BC00CCF6C6 /* UIAElementMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAElementMock.m; sourceTree = "<group>"; };
+		E1D620D4171BEA8D00CCF6C6 /* UIAElement+Fixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAElement+Fixes.h"; sourceTree = "<group>"; };
+		E1D620D5171BEA8D00CCF6C6 /* UIAElement+Fixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAElement+Fixes.m"; sourceTree = "<group>"; };
+		E1F964F8171ED5E9005AE592 /* AASEOtherApplicationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASEOtherApplicationView.h; sourceTree = "<group>"; };
+		E1F964F9171ED5E9005AE592 /* AASEOtherApplicationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASEOtherApplicationView.m; sourceTree = "<group>"; };
+		E1F964FC171EFBBD005AE592 /* libCCGraphT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCCGraphT.a; path = AAExecutorDaemon/libCCGraphT.a; sourceTree = "<group>"; };
+		E1F964FE171EFEF7005AE592 /* UIACustomElementArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIACustomElementArray.h; sourceTree = "<group>"; };
+		E1F964FF171EFEF7005AE592 /* UIACustomElementArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIACustomElementArray.m; sourceTree = "<group>"; };
+		E1FEAC5016A5C907003412E2 /* libAAClientLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAAClientLib.a; path = AAExecutorDaemon/libAAClientLib.a; sourceTree = "<group>"; };
+		E1FEAC5316A5C971003412E2 /* AAClientLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAClientLib.h; sourceTree = "<group>"; };
+		E1FFC78116A46AB7003E4E4B /* AAAppExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAppExecutor.m; sourceTree = "<group>"; };
+		E1FFC78316A47158003E4E4B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E1FFC78516A4727E003E4E4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E102C238169DDEF800612DC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1FFC78716A4728B003E4E4B /* UIKit.framework in Frameworks */,
+				E1FFC78416A47158003E4E4B /* CoreGraphics.framework in Frameworks */,
+				E102C23E169DDEF800612DC0 /* Foundation.framework in Frameworks */,
+				E1DF0A2A16A2C980009FFC14 /* UIAutomation.framework in Frameworks */,
+				E1FEAC5116A5C907003412E2 /* libAAClientLib.a in Frameworks */,
+				E10F22F4190EF2DE00FC2F9A /* libCCGraphT.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E15D2CE916E755C500A7890F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E15D2D0C16E75ADD00A7890F /* UIAutomation.framework in Frameworks */,
+				E15D2CF016E755C500A7890F /* UIKit.framework in Frameworks */,
+				E15D2CF116E755C500A7890F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1824505171BF8C70095E774 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1824506171BF8C70095E774 /* UIKit.framework in Frameworks */,
+				E1824507171BF8C70095E774 /* CoreGraphics.framework in Frameworks */,
+				E1824508171BF8C70095E774 /* Foundation.framework in Frameworks */,
+				E1824513171BF9950095E774 /* UIAutomation.framework in Frameworks */,
+				E182450A171BF8C70095E774 /* libAAClientLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E102C1EB169DC2CF00612DC0 = {
+			isa = PBXGroup;
+			children = (
+				E102C24D169DE09800612DC0 /* AAExecutorDaemon */,
+				E195AF4B16B9A6060065076C /* Lumberjack */,
+				E1BC62DC16E8CEDA0035B2C1 /* NSArray */,
+				E1944168171F44B000DC4609 /* NSSet */,
+				E1A9422116BAB518002F7EF7 /* NSData+Base64 */,
+				E102C235169DDE9100612DC0 /* Header */,
+				E102C21D169DC3A800612DC0 /* Supporting Files */,
+				E15D2CF216E755C500A7890F /* AAExecutorDaemonTests */,
+				E102C1FC169DC32C00612DC0 /* Frameworks */,
+				E102C1FA169DC32C00612DC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E102C1FA169DC32C00612DC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E102C23B169DDEF800612DC0 /* aaexecutord */,
+				E15D2CED16E755C500A7890F /* AAExecutorDaemonTests.xctest */,
+				E182450F171BF8C70095E774 /* aaexecutord copy */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E102C1FC169DC32C00612DC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1F964FC171EFBBD005AE592 /* libCCGraphT.a */,
+				E1FEAC5016A5C907003412E2 /* libAAClientLib.a */,
+				E1FFC78516A4727E003E4E4B /* UIKit.framework */,
+				E1FFC78316A47158003E4E4B /* CoreGraphics.framework */,
+				E102C236169DDE9E00612DC0 /* UIAutomation.framework */,
+				E102C23D169DDEF800612DC0 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E102C21D169DC3A800612DC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E11632E516B6C764006300E0 /* de.fau.cs.dios.pilot.aaexecutord.plist */,
+				E12FA14016CE51BB004E4594 /* entitlements.xml */,
+				E102C226169DC3E500612DC0 /* Makefile */,
+				E1332A341928C41F00FC2F9A /* updateUIAutomationFramework.sh */,
+				E195AF5316B9B1280065076C /* Common.h */,
+				E11632F816B82D6A006300E0 /* layout */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E102C24D169DE09800612DC0 /* AAExecutorDaemon */ = {
+			isa = PBXGroup;
+			children = (
+				E102C24E169DE09800612DC0 /* main.mm */,
+				E102C26016A02CB600612DC0 /* AAExecutionHandler.h */,
+				E102C26116A02CB600612DC0 /* AAExecutionHandler.m */,
+				E102C252169DE0C700612DC0 /* AAAppExecutor.h */,
+				E1FFC78116A46AB7003E4E4B /* AAAppExecutor.m */,
+				E1085AD716A84BDD00DA920A /* Executor Implementations */,
+				E11632EC16B7FD62006300E0 /* AAAlertManager.h */,
+				E11632ED16B7FD62006300E0 /* AAAlertManager.m */,
+				E11632EF16B7FD73006300E0 /* AlertHandler Implementations */,
+				E1069DC1170466980087C32E /* UIAutomation */,
+				E1FEAC5316A5C971003412E2 /* AAClientLib.h */,
+			);
+			path = AAExecutorDaemon;
+			sourceTree = "<group>";
+		};
+		E1069DC1170466980087C32E /* UIAutomation */ = {
+			isa = PBXGroup;
+			children = (
+				E102C255169DE0E700612DC0 /* UIAutomation.h */,
+				E102C256169DE0E700612DC0 /* UIAutomation.m */,
+				E1069DC2170466BB0087C32E /* UIATarget+Fixes.h */,
+				E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */,
+				E1D620D4171BEA8D00CCF6C6 /* UIAElement+Fixes.h */,
+				E1D620D5171BEA8D00CCF6C6 /* UIAElement+Fixes.m */,
+				E121C9E617464603000FB1B9 /* UIAElementNil+Fixes.h */,
+				E121C9E717464603000FB1B9 /* UIAElementNil+Fixes.m */,
+				E1F964FE171EFEF7005AE592 /* UIACustomElementArray.h */,
+				E1F964FF171EFEF7005AE592 /* UIACustomElementArray.m */,
+			);
+			name = UIAutomation;
+			sourceTree = "<group>";
+		};
+		E1085AD716A84BDD00DA920A /* Executor Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				E1085AD916A84C0B00DA920A /* AAOpenCloseExecutor.h */,
+				E1085ADA16A84C0B00DA920A /* AAOpenCloseExecutor.m */,
+				E102C253169DE0D800612DC0 /* AARandomExecutor.h */,
+				E102C254169DE0D800612DC0 /* AARandomExecutor.m */,
+				E1BC62D416E890580035B2C1 /* AASmartExecutor */,
+			);
+			name = "Executor Implementations";
+			sourceTree = "<group>";
+		};
+		E11632EF16B7FD73006300E0 /* AlertHandler Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				E11632F916B82FA8006300E0 /* AAGenericAlertHandler.h */,
+				E11632FA16B82FA8006300E0 /* AAGenericAlertHandler.m */,
+				E11632FC16B85486006300E0 /* AAAppStoreAlertHandler.h */,
+				E11632FD16B85486006300E0 /* AAAppStoreAlertHandler.m */,
+			);
+			name = "AlertHandler Implementations";
+			sourceTree = "<group>";
+		};
+		E15D2CF216E755C500A7890F /* AAExecutorDaemonTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1D620CB171BE0B400CCF6C6 /* AASEViewTest.h */,
+				E1D620CC171BE0B400CCF6C6 /* AASEViewTest.m */,
+				E1BF84FE171C5048002A4500 /* SEUIAElementArrayTest.h */,
+				E1BF84FF171C5048002A4500 /* SEUIAElementArrayTest.m */,
+				E1D620CE171BE13A00CCF6C6 /* UIAWindowMock.h */,
+				E1D620CF171BE13A00CCF6C6 /* UIAWindowMock.m */,
+				E1D620D1171BE3BC00CCF6C6 /* UIAElementMock.h */,
+				E1D620D2171BE3BC00CCF6C6 /* UIAElementMock.m */,
+				E15D2CF316E755C500A7890F /* Supporting Files */,
+			);
+			path = AAExecutorDaemonTests;
+			sourceTree = "<group>";
+		};
+		E15D2CF316E755C500A7890F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E15D2CF416E755C500A7890F /* AAExecutorDaemonTests-Info.plist */,
+				E15D2D0A16E75AA600A7890F /* UIAutomation.framework */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1944168171F44B000DC4609 /* NSSet */ = {
+			isa = PBXGroup;
+			children = (
+				E1944169171F44C500DC4609 /* NSSet+Random.h */,
+				E194416A171F44C500DC4609 /* NSSet+Random.m */,
+			);
+			name = NSSet;
+			path = AAExecutorDaemon;
+			sourceTree = "<group>";
+		};
+		E195AF4B16B9A6060065076C /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				E195AF4E16B9A87C0065076C /* DDLog.h */,
+				E195AF4F16B9A87C0065076C /* DDLog.m */,
+				E195AF4C16B9A87C0065076C /* DDASLLogger.h */,
+				E195AF4D16B9A87C0065076C /* DDASLLogger.m */,
+			);
+			name = Lumberjack;
+			sourceTree = "<group>";
+		};
+		E1A9422116BAB518002F7EF7 /* NSData+Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				E1A9422216BAB52F002F7EF7 /* NSData+Base64.h */,
+				E1A9422316BAB52F002F7EF7 /* NSData+Base64.m */,
+			);
+			name = "NSData+Base64";
+			sourceTree = "<group>";
+		};
+		E1BC62D416E890580035B2C1 /* AASmartExecutor */ = {
+			isa = PBXGroup;
+			children = (
+				E1089E181715A70400325082 /* AASmartExecution.h */,
+				E15D2D0D16E7A04B00A7890F /* AASmartExecutor.h */,
+				E15D2D0E16E7A04B00A7890F /* AASmartExecutor.m */,
+				E12445A3170D77EF00155157 /* AASEView.h */,
+				E12445A4170D77EF00155157 /* AASEView.m */,
+				E1F964F8171ED5E9005AE592 /* AASEOtherApplicationView.h */,
+				E1F964F9171ED5E9005AE592 /* AASEOtherApplicationView.m */,
+				E1251A1617229DD000D28DE0 /* AASEGraph.h */,
+				E1251A1717229DD000D28DE0 /* AASEGraph.m */,
+				E1117049171337B700A3FCDF /* AASEElement.h */,
+				E111704A171337B700A3FCDF /* AASEElement.m */,
+				E1BC62D816E890DA0035B2C1 /* UIAElement+SmartExecution.h */,
+				E1056E6E1700AC4A000BCCB9 /* UIAElement+SmartExecution.m */,
+				E1251A19172587FF00D28DE0 /* UIAElementNil+SmartExecution.h */,
+				E1251A1A172587FF00D28DE0 /* UIAElementNil+SmartExecution.m */,
+				E12445A6170DB6A400155157 /* UIAElementArray+SmartExecution.h */,
+				E12445A7170DB6A400155157 /* UIAElementArray+SmartExecution.m */,
+			);
+			name = AASmartExecutor;
+			sourceTree = "<group>";
+		};
+		E1BC62DC16E8CEDA0035B2C1 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				E1BC62D916E8CED40035B2C1 /* NSArray+Random.h */,
+				E1BC62DA16E8CED40035B2C1 /* NSArray+Random.m */,
+			);
+			name = NSArray;
+			path = AAExecutorDaemon;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		E102C249169DE01E00612DC0 /* aaexecutord-make */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = E102C24A169DE01E00612DC0 /* Build configuration list for PBXLegacyTarget "aaexecutord-make" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = "aaexecutord-make";
+			passBuildSettingsInEnvironment = 1;
+			productName = "aaexecutord-make";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		E102C23A169DDEF800612DC0 /* aaexecutord */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E102C246169DDEF800612DC0 /* Build configuration list for PBXNativeTarget "aaexecutord" */;
+			buildPhases = (
+				E102C237169DDEF800612DC0 /* Sources */,
+				E102C238169DDEF800612DC0 /* Frameworks */,
+				E102C239169DDEF800612DC0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = aaexecutord;
+			productName = aaexecutord;
+			productReference = E102C23B169DDEF800612DC0 /* aaexecutord */;
+			productType = "com.apple.product-type.tool";
+		};
+		E15D2CEC16E755C500A7890F /* AAExecutorDaemonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E15D2CFC16E755C500A7890F /* Build configuration list for PBXNativeTarget "AAExecutorDaemonTests" */;
+			buildPhases = (
+				E15D2CE816E755C500A7890F /* Sources */,
+				E15D2CE916E755C500A7890F /* Frameworks */,
+				E15D2CEA16E755C500A7890F /* Resources */,
+				E15D2CEB16E755C500A7890F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AAExecutorDaemonTests;
+			productName = AAExecutorDaemonTests;
+			productReference = E15D2CED16E755C500A7890F /* AAExecutorDaemonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E18244ED171BF8C70095E774 /* aaexecutord-simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E182450C171BF8C70095E774 /* Build configuration list for PBXNativeTarget "aaexecutord-simulator" */;
+			buildPhases = (
+				E18244EE171BF8C70095E774 /* Sources */,
+				E1824505171BF8C70095E774 /* Frameworks */,
+				E182450B171BF8C70095E774 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "aaexecutord-simulator";
+			productName = aaexecutord;
+			productReference = E182450F171BF8C70095E774 /* aaexecutord copy */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E102C1ED169DC2CF00612DC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = E102C1F0169DC2CF00612DC0 /* Build configuration list for PBXProject "AAExecutorDaemon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E102C1EB169DC2CF00612DC0;
+			productRefGroup = E102C1FA169DC32C00612DC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E102C23A169DDEF800612DC0 /* aaexecutord */,
+				E18244ED171BF8C70095E774 /* aaexecutord-simulator */,
+				E102C249169DE01E00612DC0 /* aaexecutord-make */,
+				E15D2CEC16E755C500A7890F /* AAExecutorDaemonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E15D2CEA16E755C500A7890F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E15D2CEB16E755C500A7890F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E102C237169DDEF800612DC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E102C24F169DE09800612DC0 /* main.mm in Sources */,
+				E195AF5116B9A87C0065076C /* DDLog.m in Sources */,
+				E195AF5016B9A87C0065076C /* DDASLLogger.m in Sources */,
+				E1A9422416BAB52F002F7EF7 /* NSData+Base64.m in Sources */,
+				E1BC62DB16E8CED40035B2C1 /* NSArray+Random.m in Sources */,
+				E102C26216A02CB600612DC0 /* AAExecutionHandler.m in Sources */,
+				E1DF0A2816A2C957009FFC14 /* AARandomExecutor.m in Sources */,
+				E1FFC78216A46AB7003E4E4B /* AAAppExecutor.m in Sources */,
+				E11632EE16B7FD62006300E0 /* AAAlertManager.m in Sources */,
+				E11632FB16B82FA8006300E0 /* AAGenericAlertHandler.m in Sources */,
+				E11632FE16B85486006300E0 /* AAAppStoreAlertHandler.m in Sources */,
+				E15D2D0F16E7A04B00A7890F /* AASmartExecutor.m in Sources */,
+				E1085ADB16A84C0B00DA920A /* AAOpenCloseExecutor.m in Sources */,
+				E1DF0A2916A2C957009FFC14 /* UIAutomation.m in Sources */,
+				E1069DC4170466BB0087C32E /* UIATarget+Fixes.m in Sources */,
+				E1056E6F1700AC86000BCCB9 /* UIAElement+SmartExecution.m in Sources */,
+				E12445A5170D77EF00155157 /* AASEView.m in Sources */,
+				E12445A8170DB6A400155157 /* UIAElementArray+SmartExecution.m in Sources */,
+				E111704B171337B700A3FCDF /* AASEElement.m in Sources */,
+				E1D620D6171BEA8D00CCF6C6 /* UIAElement+Fixes.m in Sources */,
+				E1F964FA171ED5E9005AE592 /* AASEOtherApplicationView.m in Sources */,
+				E1F96500171EFEF7005AE592 /* UIACustomElementArray.m in Sources */,
+				E194416B171F44C500DC4609 /* NSSet+Random.m in Sources */,
+				E1251A1817229DD000D28DE0 /* AASEGraph.m in Sources */,
+				E1251A1B172587FF00D28DE0 /* UIAElementNil+SmartExecution.m in Sources */,
+				E121C9E817464604000FB1B9 /* UIAElementNil+Fixes.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E15D2CE816E755C500A7890F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BF84F7171BFE8F002A4500 /* DDLog.m in Sources */,
+				E1D620CD171BE0B400CCF6C6 /* AASEViewTest.m in Sources */,
+				E1D620D0171BE13A00CCF6C6 /* UIAWindowMock.m in Sources */,
+				E1D620D3171BE3BC00CCF6C6 /* UIAElementMock.m in Sources */,
+				E1BF84F2171BFE75002A4500 /* AASEView.m in Sources */,
+				E1BF84F3171BFE75002A4500 /* AASEElement.m in Sources */,
+				E1BF84F5171BFE75002A4500 /* UIAElement+SmartExecution.m in Sources */,
+				E1BF84F6171BFE75002A4500 /* UIAElementArray+SmartExecution.m in Sources */,
+				E1BF84F8171BFEE9002A4500 /* UIATarget+Fixes.m in Sources */,
+				E1BF84F9171BFEE9002A4500 /* UIAElement+Fixes.m in Sources */,
+				E1BF84FA171BFEE9002A4500 /* NSArray+Random.m in Sources */,
+				E1BF8500171C5048002A4500 /* SEUIAElementArrayTest.m in Sources */,
+				E1F964FB171ED5E9005AE592 /* AASEOtherApplicationView.m in Sources */,
+				E1F96501171EFEF7005AE592 /* UIACustomElementArray.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18244EE171BF8C70095E774 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E18244EF171BF8C70095E774 /* main.mm in Sources */,
+				E18244F0171BF8C70095E774 /* DDLog.m in Sources */,
+				E18244F1171BF8C70095E774 /* DDASLLogger.m in Sources */,
+				E18244F2171BF8C70095E774 /* NSData+Base64.m in Sources */,
+				E18244F3171BF8C70095E774 /* NSArray+Random.m in Sources */,
+				E18244F4171BF8C70095E774 /* AAExecutionHandler.m in Sources */,
+				E18244F5171BF8C70095E774 /* AARandomExecutor.m in Sources */,
+				E18244F6171BF8C70095E774 /* AAAppExecutor.m in Sources */,
+				E18244F7171BF8C70095E774 /* AAAlertManager.m in Sources */,
+				E18244F8171BF8C70095E774 /* AAGenericAlertHandler.m in Sources */,
+				E18244F9171BF8C70095E774 /* AAAppStoreAlertHandler.m in Sources */,
+				E18244FB171BF8C70095E774 /* AASmartExecutor.m in Sources */,
+				E18244FC171BF8C70095E774 /* AAOpenCloseExecutor.m in Sources */,
+				E18244FE171BF8C70095E774 /* UIAutomation.m in Sources */,
+				E18244FF171BF8C70095E774 /* UIATarget+Fixes.m in Sources */,
+				E1824500171BF8C70095E774 /* UIAElement+SmartExecution.m in Sources */,
+				E1824501171BF8C70095E774 /* AASEView.m in Sources */,
+				E1824502171BF8C70095E774 /* UIAElementArray+SmartExecution.m in Sources */,
+				E1824503171BF8C70095E774 /* AASEElement.m in Sources */,
+				E1824504171BF8C70095E774 /* UIAElement+Fixes.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E102C1F2169DC2CF00612DC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				HEADER_SEARCH_PATHS = (
+					Header,
+					Header/CCGraphT,
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E102C1F3169DC2CF00612DC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				HEADER_SEARCH_PATHS = (
+					Header,
+					Header/CCGraphT,
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		E102C247169DDEF800612DC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = entitlements.xml;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = Header;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AAExecutorDaemon\"",
+					"$(PROJECT_DIR)/AAExecutorDaemon",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Debug;
+		};
+		E102C248169DDEF800612DC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = entitlements.xml;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = Header;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AAExecutorDaemon\"",
+					"$(PROJECT_DIR)/AAExecutorDaemon",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Release;
+		};
+		E102C24B169DE01E00612DC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E102C24C169DE01E00612DC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E15D2CFD16E755C500A7890F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/PrivateFrameworks\"",
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "AAExecutorDaemonTests/AAExecutorDaemonTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E15D2CFE16E755C500A7890F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/PrivateFrameworks\"",
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "AAExecutorDaemonTests/AAExecutorDaemonTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E182450D171BF8C70095E774 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = entitlements.xml;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/Developer/Library/PrivateFrameworks\"",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AAExecutorDaemon\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "aaexecutord copy";
+				PROVISIONING_PROFILE = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Debug;
+		};
+		E182450E171BF8C70095E774 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = entitlements.xml;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/Developer/Library/PrivateFrameworks\"",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AAExecutorDaemon\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "aaexecutord copy";
+				PROVISIONING_PROFILE = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E102C1F0169DC2CF00612DC0 /* Build configuration list for PBXProject "AAExecutorDaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E102C1F2169DC2CF00612DC0 /* Debug */,
+				E102C1F3169DC2CF00612DC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E102C246169DDEF800612DC0 /* Build configuration list for PBXNativeTarget "aaexecutord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E102C247169DDEF800612DC0 /* Debug */,
+				E102C248169DDEF800612DC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E102C24A169DE01E00612DC0 /* Build configuration list for PBXLegacyTarget "aaexecutord-make" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E102C24B169DE01E00612DC0 /* Debug */,
+				E102C24C169DE01E00612DC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E15D2CFC16E755C500A7890F /* Build configuration list for PBXNativeTarget "AAExecutorDaemonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E15D2CFD16E755C500A7890F /* Debug */,
+				E15D2CFE16E755C500A7890F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E182450C171BF8C70095E774 /* Build configuration list for PBXNativeTarget "aaexecutord-simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E182450D171BF8C70095E774 /* Debug */,
+				E182450E171BF8C70095E774 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E102C1ED169DC2CF00612DC0 /* Project object */;
+}

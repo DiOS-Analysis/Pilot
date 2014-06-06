@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SUDOERS_LINE="mobile ALL=(ALL) NOPASSWD:/usr/bin/apt-get"
+SUDOERS_FILE="/etc/sudoers"
+
+cat "$SUDOERS_FILE" | grep "$SUDOERS_LINE" > /dev/null
+if [ $? -eq 1 ]
+then
+    echo "$SUDOERS_LINE" >>/etc/sudoers
+fi

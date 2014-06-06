@@ -1,0 +1,11 @@
+#!/bin/sh
+
+chown root:wheel /Library/LaunchDaemons/de.fau.cs.dios.pilot.aaexecutord.plist
+
+launchctl list | grep de.fau.cs.dios.pilot.aaexecutord
+if [ $? -eq 0 ]
+then
+    launchctl unload /Library/LaunchDaemons/de.fau.cs.dios.pilot.aaexecutord.plist
+    killall aaexecutord
+fi
+launchctl load /Library/LaunchDaemons/de.fau.cs.dios.pilot.aaexecutord.plist

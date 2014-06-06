@@ -1,0 +1,10 @@
+Package: de.fau.cs.dios.pilot.aaexecutordaemon
+Name: DiOS Executor
+Version: 1.9.0
+Architecture: iphoneos-arm
+Description: DiOS executor daemon
+Maintainer: Andreas Weinlein
+Author: Andreas Weinlein
+Section: System
+Tag: role::hacker
+Priority: standard

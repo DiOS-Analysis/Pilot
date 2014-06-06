@@ -1,0 +1,7 @@
+**/xcuserdata/
+**/xcshareddata/
+**/obj/
+**/.theos/
+AAExecutorDaemon/layout/Library/PrivateFrameworks/UIAutomation.framework
+AAExecutorDaemon/_
+*.deb

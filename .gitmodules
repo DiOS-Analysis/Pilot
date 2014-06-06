@@ -1,0 +1,12 @@
+[submodule "SBServerTweak/RoutingHTTPServer"]
+	path = SBServerTweak/RoutingHTTPServer
+	url = https://github.com/DiOS-Analysis/RoutingHTTPServer
+[submodule "Common/CocoaLumberjack"]
+	path = Common/CocoaLumberjack
+	url = https://github.com/robbiehanson/CocoaLumberjack
+[submodule "Common/CaptainHook"]
+	path = Common/CaptainHook
+	url = https://github.com/rpetrich/CaptainHook
+[submodule "Common/CCGraphT"]
+	path = Common/CCGraphT
+	url = https://github.com/JamesKane/CCGraphT
