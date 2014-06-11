@@ -6,11 +6,11 @@ First, the `SBServerTweak` (also known as Controller) is the frontmost client co
 
 The AAExecutorDaemon (Executor) is responsible for automatically exploring an app's user interface and for simulating user interaction. For this, several execution strategies were implemented which provide different granularity levels of UI exploration. To separate automation code from the actual app code, the executor was implemented as iOS background daemon and makes use of the UI Automation API.
 
-The `AAClientLib` is a static library that simplifies the development of DiOS analyzer plugins. It receives notifications from the controller and provides a clean interface to report analysis results to the backend. Please see [DiOS Analyzer] for a usage example. 
+The `AAClientLib` is a static library that simplifies the development of DiOS analyzer plugins. It receives notifications from the controller and provides a clean interface to report analysis results to the backend. Please see [BasicAnalyzer](https://github.com/DiOS-Analysis/BasicAnalyzer) for a usage example. 
 
 
 ## Requirements
   * theos (installed to `/opt/theos`) <https://github.com/DHowett/theos>
 
 
-See [Initial Setup] and [Running DiOS] for detailed build and setup instructions.
+See [Initial Setup](https://github.com/DiOS-Analysis/DiOS/wiki/Initial-Setup) and [Running DiOS](https://github.com/DiOS-Analysis/DiOS/wiki/Running-DiOS) for detailed build and setup instructions.
