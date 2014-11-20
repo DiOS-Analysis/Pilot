@@ -325,8 +325,10 @@ static UIATarget *localTarget;
             [localTarget pushPatience:1];
             //check for alerts and wait until dismissed
             int counter = 0;
-            while (![localTarget.frontMostApp.alert isKindOfClass:[UIAElementNil class]]) {
-                DDLogVerbose(@"Waiting for alert being handled...");
+            while (
+                   //localTarget.frontMostApp.alert != nil &&
+                   ![localTarget.frontMostApp.alert isKindOfClass:[UIAElementNil class]]) {
+                DDLogVerbose(@"Waiting for alert being handled... (%@, nil?: %i)", localTarget.frontMostApp.alert, localTarget.frontMostApp.alert == nil);
                 if (counter == 5) {
                     // it seems alert handling needs to be requested again
                     DDLogVerbose(@"Requesting alert handling again...");

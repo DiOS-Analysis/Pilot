@@ -59,7 +59,8 @@
     // use the default button if available
     if (alert.defaultButton != nil &&
         [alert.defaultButton isKindOfClass:[UIAButton class]] &&
-        alert.defaultButton.isEnabledBool) {
+        alert.defaultButton.isEnabledBool &&
+        alert.defaultButton.isVisibleBool) {
 
         BOOL blacklisted = false;
         NSString *buttonName = [alert.defaultButton name];

@@ -49,22 +49,32 @@
     UIAApplication *sb = self.frontMostApp;
     if ([sb.bundleID compare:SB_BUNDLE_ID] == NSOrderedSame) {
         
+        if (app == nil) {
+            DDLogInfo(@"-[UIATarget reactivateApp:] app is nil - reactivating the first app now");
+            return [self reactivateApp];
+        }
+        
         // activate switcher by double-tapping the home button
         [self clickMenu];
         [self clickMenu];
         sleep(1);
+
+        [self pushPatience:5];
         for (int i = 0; i < 5; i++) {
             if (![sb.appItemScrollView isKindOfClass:[UIAElementNil class]]) {
                 break;
             }
             sleep(1);
         }
+        [self popPatience];
+        
         if ([sb.appItemScrollView isKindOfClass:[UIAElementNil class]]) {
             DDLogWarn(@"-[UIATarget reactivateApp:] Unable to activate the appItemScrollView - reactivating the first app now");
             [self clickMenu];
             sleep(1);
             return [self reactivateApp];
         }
+        
         // find the apps icon
         [self pushPatience:5]; //ensure there is enough time to identify the button
         UIAElementArray *scrollViews = sb.appItemScrollView.scrollViews;
