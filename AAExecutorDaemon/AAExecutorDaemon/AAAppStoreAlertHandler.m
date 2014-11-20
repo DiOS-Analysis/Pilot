@@ -66,6 +66,10 @@ static NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
             DDLogError(@"Detected iTunesStore error: %@", title);
             [alert.defaultButton tap];
             alertHandlingDone = YES;
+        } else if ([title rangeOfString:@"Verif" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            DDLogError(@"Detected iTunesStore error: %@ (account verification is missing)", title);
+            [alert.cancelButton tap];
+            alertHandlingDone = YES;
         }
     }
     return alertHandlingDone;
