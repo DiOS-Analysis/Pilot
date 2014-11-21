@@ -5,9 +5,9 @@
 #ifndef SBServerTweak_Common_h
 #define SBServerTweak_Common_h
 
-#import "DDLog.h"
-#import "DDASLLogger.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = DDLogLevelVerbose;
+
 
 #endif

@@ -19,7 +19,7 @@ CHConstructor {
     @autoreleasepool {
         NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
         
-        DDLogCInfo(@"SBServerTweak started: %@", bundleIdentifier);
+        DDLogInfo(@"SBServerTweak started: %@", bundleIdentifier);
         CHLoadLateClass(UIApplication);
         CHHook(1, UIApplication, setDelegate);
     }
