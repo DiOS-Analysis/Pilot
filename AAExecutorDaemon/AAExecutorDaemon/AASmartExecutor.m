@@ -148,7 +148,7 @@ UIATarget *localTarget;
     
     // validate frontmostapp is app under execution
     if (![target.frontMostApp.bundleID isEqualToString:_executor.bundleId]) {
-        DDLogCWarn(@"App under execution is not frontmost! Try to open it now.");
+        DDLogWarn(@"App under execution is not frontmost! Try to open it now.");
         if (![target openApplication:_executor.bundleId]) {
             DDLogError(@"Unable to open app under execution. Aborting.");
             return;

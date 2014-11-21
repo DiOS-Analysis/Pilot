@@ -53,7 +53,7 @@ int main(int argc, char **argv, char **envp) {
         //setup logging
         [DDLog addLogger:[DDASLLogger sharedInstance]];
 
-        DDLogCInfo(@"starting ...");
+        DDLogInfo(@"starting ...");
         
         //check if UIAutomation is working
         BOOL UIAutomationIsWorking = YES;
@@ -69,8 +69,8 @@ int main(int argc, char **argv, char **envp) {
         }
         
         if (!UIAutomationIsWorking) {
-            DDLogCError(@"UIAutomation.framework is not working!!!");
-            DDLogCInfo(@"sleeping for some time and exit afterwards...");
+            DDLogError(@"UIAutomation.framework is not working!!!");
+            DDLogInfo(@"sleeping for some time and exit afterwards...");
             sleep(15);
             exit(1);
 #pragma message "TODO: mark device as not working if this is not working after some tries"
@@ -97,7 +97,7 @@ int main(int argc, char **argv, char **envp) {
         [client registerForAppExecutionRequestStartNotificationWithBlock:^(NSString *bundleId) {
             
             if (weakclient.executionStarted) {
-                DDLogCWarn(@"execution already running. Aborting!");
+                DDLogWarn(@"execution already running. Aborting!");
                 return;
             }
             
@@ -123,7 +123,7 @@ int main(int argc, char **argv, char **envp) {
             }
 
             AAExecutionStrategy executionStrategy = executionStrategyFromString(strategyName);
-            DDLogCInfo(@"Requested execution with strategy: %@ and execution time: %lu", strategyName, (unsigned long)executionTime);
+            DDLogInfo(@"Requested execution with strategy: %@ and execution time: %lu", strategyName, (unsigned long)executionTime);
             AAAppExecutor* executor;
             switch (executionStrategy) {
                 case kSmartExecution:
@@ -140,22 +140,22 @@ int main(int argc, char **argv, char **envp) {
                     
                 case kDefaultExecution:
                 default:
-                    DDLogCWarn(@"Unknown execution strategy! Using default strategy.");
+                    DDLogWarn(@"Unknown execution strategy! Using default strategy.");
                     executor = [AADefaultExecutor alloc];
                     break;
             }
             executor = [executor initWithBundleId:bundleId andExecutionTime:executionTime];
                                 
-            DDLogCVerbose(@"weakclient: %@", weakclient);
+            DDLogVerbose(@"weakclient: %@", weakclient);
             [weakclient setAppExecutionHasStartedAndAutoScheduleSetRunning:TRUE];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 sleep(10); // wait some time to get the app started
                 BOOL result = [executionHandler startExecutionWithExecutor:executor];
                 if (result) {
-                    DDLogCInfo(@"execution started");
+                    DDLogInfo(@"execution started");
                 } else {
-                    DDLogCError(@"starting execution failed!!!");
-                    DDLogCVerbose(@"weakclient: %@", weakclient);
+                    DDLogError(@"starting execution failed!!!");
+                    DDLogVerbose(@"weakclient: %@", weakclient);
                     [weakclient setAppExecutionHasFinished];
                 }
             });
@@ -164,7 +164,7 @@ int main(int argc, char **argv, char **envp) {
 #pragma mark [AAClient onExecutionFinishRequested]
         [client registerForNotification:AAPilotAppExecutionRequestFinish withBlock:^{
             [executionHandler stopExecution];
-            DDLogCVerbose(@"weakclient: %@", weakclient);
+            DDLogVerbose(@"weakclient: %@", weakclient);
             [weakclient setAppExecutionHasFinished];
         }];
 
@@ -172,11 +172,11 @@ int main(int argc, char **argv, char **envp) {
 // reset execution state on finished notifications to be able to recover from bad state
         [client registerForNotification:AAPilotAppExecutionFinished withBlock:^{
             if (executionHandler.executor.executionRunning) {
-                DDLogCWarn(@"execution still running on AAPilotAppExecutionFinished notification!");
+                DDLogWarn(@"execution still running on AAPilotAppExecutionFinished notification!");
                 if(![executionHandler stopExecution]) {
-                    DDLogCInfo(@"execution stopped now. Setting execution finished.");
+                    DDLogInfo(@"execution stopped now. Setting execution finished.");
                 } else {
-                    DDLogCError(@"Unable to stop the execution! It will be set to execution finished by force now.");
+                    DDLogError(@"Unable to stop the execution! It will be set to execution finished by force now.");
                 }
                 [executionHandler.executor setExecutionFinished];
             }
@@ -188,7 +188,7 @@ int main(int argc, char **argv, char **envp) {
         }];
         
         
-        DDLogCInfo(@"started!");
+        DDLogInfo(@"started!");
         
         NSRunLoop *runLoop = [NSRunLoop mainRunLoop];
 
@@ -200,13 +200,13 @@ int main(int argc, char **argv, char **envp) {
                                                    repeats:YES];
         
         [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
-        DDLogCInfo(@"entering runloop");
+        DDLogInfo(@"entering runloop");
         [runLoop run];
-        DDLogCInfo(@"runloop exited");
+        DDLogInfo(@"runloop exited");
 
-        DDLogCInfo(@"Try to stop all running executions ...");
+        DDLogInfo(@"Try to stop all running executions ...");
         BOOL result = [executionHandler stopExecution];
-        DDLogCInfo(@"execution stopped: %c", result);
+        DDLogInfo(@"execution stopped: %c", result);
         
         client = nil;
     }
