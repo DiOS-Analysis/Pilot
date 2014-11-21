@@ -28,7 +28,7 @@ CHDeclareClass(SBAlertItemsController)
 
 + (BOOL)openApplicationForBundleId:(NSString*)bundleId {
 
-    SBApplication *app = [CHSharedInstance(SBApplicationController) applicationWithDisplayIdentifier:bundleId];
+    SBApplication *app = [CHSharedInstance(SBApplicationController) applicationWithBundleIdentifier:bundleId];
     SBApplicationIcon *appIcon = [CHAlloc(SBApplicationIcon) initWithApplication:app];
 
     if (appIcon != nil) {
@@ -129,7 +129,7 @@ CHDeclareClass(SBAlertItemsController)
 }
 
 + (SBApplication*)applicationForBundleId:(NSString*)bundleId {
-    return [CHSharedInstance(SBApplicationController) applicationWithDisplayIdentifier:bundleId];
+    return [CHSharedInstance(SBApplicationController) applicationWithBundleIdentifier:bundleId];
 }
 
 
