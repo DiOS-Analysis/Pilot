@@ -42,13 +42,15 @@
 		E130D0D3163AC11100963021 /* SBSTAppStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E130D0D2163AC11100963021 /* SBSTAppStoreManager.m */; };
 		E132E4C8166E389F0004DF63 /* SpringBoardUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E132E4C7166E389F0004DF63 /* SpringBoardUI.framework */; };
 		E132E4D8166E6CFC0004DF63 /* SBSTAppExecutionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E132E4D7166E6CFB0004DF63 /* SBSTAppExecutionManager.m */; };
-		E153C5DA190C0A1D00FC2F9A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E153C5CE190C04A300FC2F9A /* DDLog.m */; };
-		E153C5DB190C0A2100FC2F9A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E153C5D0190C04A300FC2F9A /* DDTTYLogger.m */; };
 		E183601D163EE24C00582EC6 /* SBSTSpringBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E183601C163EE24C00582EC6 /* SBSTSpringBoardManager.m */; };
 		E183602F163F10D900582EC6 /* SBSTCycriptExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E183602E163F10D900582EC6 /* SBSTCycriptExecutor.m */; };
 		E18360451641408D00582EC6 /* SBSTShellExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18360431641407400582EC6 /* SBSTShellExecutor.m */; };
 		E183604A1641452F00582EC6 /* SBSTCydiaStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E18360491641452F00582EC6 /* SBSTCydiaStoreManager.m */; };
 		E1A93870190C595900FC2F9A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A9385D190C593F00FC2F9A /* GCDAsyncSocket.m */; };
+		E1BD0BAF1A1E930300FC2F9A /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BD0BA61A1E930300FC2F9A /* DDASLLogCapture.m */; };
+		E1BD0BB01A1E930300FC2F9A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BD0BA81A1E930300FC2F9A /* DDASLLogger.m */; };
+		E1BD0BB11A1E930300FC2F9A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BD0BAB1A1E930300FC2F9A /* DDLog.m */; };
+		E1BD0BB21A1E930300FC2F9A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BD0BAE1A1E930300FC2F9A /* DDTTYLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -131,18 +133,7 @@
 		E132E4C7166E389F0004DF63 /* SpringBoardUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpringBoardUI.framework; path = System/Library/PrivateFrameworks/SpringBoardUI.framework; sourceTree = SDKROOT; };
 		E132E4D6166E6CFB0004DF63 /* SBSTAppExecutionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSTAppExecutionManager.h; sourceTree = "<group>"; };
 		E132E4D7166E6CFB0004DF63 /* SBSTAppExecutionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSTAppExecutionManager.m; sourceTree = "<group>"; };
-		E153C5C6190C04A300FC2F9A /* DDASLLogCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
-		E153C5C7190C04A300FC2F9A /* DDASLLogCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDASLLogCapture.m; sourceTree = "<group>"; };
-		E153C5C8190C04A300FC2F9A /* DDASLLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		E153C5C9190C04A300FC2F9A /* DDASLLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		E153C5CC190C04A300FC2F9A /* DDLog+LOGV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
-		E153C5CD190C04A300FC2F9A /* DDLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		E153C5CE190C04A300FC2F9A /* DDLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		E153C5CF190C04A300FC2F9A /* DDTTYLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		E153C5D0190C04A300FC2F9A /* DDTTYLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
 		E153C5D9190C094C00FC2F9A /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		E153C5DC190C460700FC2F9A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = ../Common/CocoaAsyncSocket/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
-		E153C5E0190C46AA00FC2F9A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = ../Common/CocoaAsyncSocket/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		E183601B163EE24C00582EC6 /* SBSTSpringBoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSTSpringBoardManager.h; sourceTree = "<group>"; };
 		E183601C163EE24C00582EC6 /* SBSTSpringBoardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSTSpringBoardManager.m; sourceTree = "<group>"; };
 		E183602D163F10D900582EC6 /* SBSTCycriptExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSTCycriptExecutor.h; sourceTree = "<group>"; };
@@ -153,6 +144,18 @@
 		E18360491641452F00582EC6 /* SBSTCydiaStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSTCydiaStoreManager.m; sourceTree = "<group>"; };
 		E1A9385C190C593F00FC2F9A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		E1A9385D190C593F00FC2F9A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		E1BD0BA51A1E930300FC2F9A /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = ../Common/CocoaLumberjack/Classes/DDASLLogCapture.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BA61A1E930300FC2F9A /* DDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDASLLogCapture.m; path = ../Common/CocoaLumberjack/Classes/DDASLLogCapture.m; sourceTree = SOURCE_ROOT; };
+		E1BD0BA71A1E930300FC2F9A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = ../Common/CocoaLumberjack/Classes/DDASLLogger.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BA81A1E930300FC2F9A /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = ../Common/CocoaLumberjack/Classes/DDASLLogger.m; sourceTree = SOURCE_ROOT; };
+		E1BD0BA91A1E930300FC2F9A /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDAssertMacros.h; path = ../Common/CocoaLumberjack/Classes/DDAssertMacros.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BAA1A1E930300FC2F9A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = ../Common/CocoaLumberjack/Classes/DDLog.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BAB1A1E930300FC2F9A /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = ../Common/CocoaLumberjack/Classes/DDLog.m; sourceTree = SOURCE_ROOT; };
+		E1BD0BAC1A1E930300FC2F9A /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DDLog+LOGV.h"; path = "../Common/CocoaLumberjack/Classes/DDLog+LOGV.h"; sourceTree = SOURCE_ROOT; };
+		E1BD0BAD1A1E930300FC2F9A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = ../Common/CocoaLumberjack/Classes/DDTTYLogger.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BAE1A1E930300FC2F9A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = ../Common/CocoaLumberjack/Classes/DDTTYLogger.m; sourceTree = SOURCE_ROOT; };
+		E1BD0BB41A1E94AA00FC2F9A /* DDLegacy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DDLegacy.h; path = ../Common/CocoaLumberjack/Classes/DDLegacy.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BB51A1E994500FC2F9A /* CocoaLumberjack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = ../Common/CocoaLumberjack/Classes/CocoaLumberjack.h; sourceTree = "<group>"; };
 		E1C45696176A21D5006DCD80 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -179,7 +182,6 @@
 			children = (
 				E1119074162FFC0900AAB2A7 /* SBServerTweak */,
 				E130CEFA163A9A1000963021 /* RoutingHTTPServer */,
-				E153C5DF190C462000FC2F9A /* CocoaAsyncSocket */,
 				E153C5C0190C04A300FC2F9A /* Lumberjack */,
 				E10ED69A16E3C42B00AD5096 /* Header */,
 				E1119071162FFC0900AAB2A7 /* Frameworks */,
@@ -358,27 +360,21 @@
 		E153C5C0190C04A300FC2F9A /* Lumberjack */ = {
 			isa = PBXGroup;
 			children = (
-				E153C5C6190C04A300FC2F9A /* DDASLLogCapture.h */,
-				E153C5C7190C04A300FC2F9A /* DDASLLogCapture.m */,
-				E153C5C8190C04A300FC2F9A /* DDASLLogger.h */,
-				E153C5C9190C04A300FC2F9A /* DDASLLogger.m */,
-				E153C5CC190C04A300FC2F9A /* DDLog+LOGV.h */,
-				E153C5CD190C04A300FC2F9A /* DDLog.h */,
-				E153C5CE190C04A300FC2F9A /* DDLog.m */,
-				E153C5CF190C04A300FC2F9A /* DDTTYLogger.h */,
-				E153C5D0190C04A300FC2F9A /* DDTTYLogger.m */,
+				E1BD0BB51A1E994500FC2F9A /* CocoaLumberjack.h */,
+				E1BD0BA51A1E930300FC2F9A /* DDASLLogCapture.h */,
+				E1BD0BA61A1E930300FC2F9A /* DDASLLogCapture.m */,
+				E1BD0BA71A1E930300FC2F9A /* DDASLLogger.h */,
+				E1BD0BA81A1E930300FC2F9A /* DDASLLogger.m */,
+				E1BD0BA91A1E930300FC2F9A /* DDAssertMacros.h */,
+				E1BD0BB41A1E94AA00FC2F9A /* DDLegacy.h */,
+				E1BD0BAA1A1E930300FC2F9A /* DDLog.h */,
+				E1BD0BAB1A1E930300FC2F9A /* DDLog.m */,
+				E1BD0BAC1A1E930300FC2F9A /* DDLog+LOGV.h */,
+				E1BD0BAD1A1E930300FC2F9A /* DDTTYLogger.h */,
+				E1BD0BAE1A1E930300FC2F9A /* DDTTYLogger.m */,
 			);
 			name = Lumberjack;
 			path = ../Common/CocoaLumberjack/Lumberjack;
-			sourceTree = "<group>";
-		};
-		E153C5DF190C462000FC2F9A /* CocoaAsyncSocket */ = {
-			isa = PBXGroup;
-			children = (
-				E153C5E0190C46AA00FC2F9A /* GCDAsyncSocket.h */,
-				E153C5DC190C460700FC2F9A /* GCDAsyncSocket.m */,
-			);
-			name = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
 		E1A93859190C593F00FC2F9A /* Vendor */ = {
@@ -468,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BD0BAF1A1E930300FC2F9A /* DDASLLogCapture.m in Sources */,
 				E111907A162FFC0900AAB2A7 /* SBServerTweak.m in Sources */,
 				E1119088162FFD1700AAB2A7 /* SBServerTweakMain.m in Sources */,
 				E12D0C4C163A8A0A008A427A /* SBSTHTTPServer.m in Sources */,
@@ -486,9 +483,12 @@
 				E130D06A163A9A1100963021 /* HTTPDynamicFileResponse.m in Sources */,
 				E130D06B163A9A1100963021 /* HTTPFileResponse.m in Sources */,
 				E130D06C163A9A1100963021 /* HTTPRedirectResponse.m in Sources */,
+				E1BD0BB11A1E930300FC2F9A /* DDLog.m in Sources */,
+				E1BD0BB21A1E930300FC2F9A /* DDTTYLogger.m in Sources */,
 				E130D06D163A9A1100963021 /* WebSocket.m in Sources */,
 				E1A93870190C595900FC2F9A /* GCDAsyncSocket.m in Sources */,
 				E130D09F163A9A1100963021 /* HTTPResponseProxy.m in Sources */,
+				E1BD0BB01A1E930300FC2F9A /* DDASLLogger.m in Sources */,
 				E130D0A0163A9A1100963021 /* Route.m in Sources */,
 				E130D0A1163A9A1100963021 /* RouteRequest.m in Sources */,
 				E130D0A2163A9A1100963021 /* RouteResponse.m in Sources */,
@@ -500,8 +500,6 @@
 				E18360451641408D00582EC6 /* SBSTShellExecutor.m in Sources */,
 				E183604A1641452F00582EC6 /* SBSTCydiaStoreManager.m in Sources */,
 				E132E4D8166E6CFC0004DF63 /* SBSTAppExecutionManager.m in Sources */,
-				E153C5DA190C0A1D00FC2F9A /* DDLog.m in Sources */,
-				E153C5DB190C0A2100FC2F9A /* DDTTYLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +516,6 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -545,7 +542,6 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
