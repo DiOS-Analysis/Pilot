@@ -28,22 +28,25 @@ CHDeclareClass(SBAlertItemsController)
 
 + (BOOL)openApplicationForBundleId:(NSString*)bundleId {
 
-    SBApplication *app = [CHSharedInstance(SBApplicationController) applicationWithBundleIdentifier:bundleId];
-    SBApplicationIcon *appIcon = [CHAlloc(SBApplicationIcon) initWithApplication:app];
+    NSDistributedNotificationCenter *defaultCenter = [NSDistributedNotificationCenter defaultCenter];
 
-    if (appIcon != nil) {
+    SBApplication *app = [CHSharedInstance(SBApplicationController) applicationWithBundleIdentifier:bundleId];
+    if (app != nil) {
+        // the appIcon init and app launch has to be executed on the main thread!
         dispatch_sync(dispatch_get_main_queue(),^{
-            // the app launch has to be executed on the main queue!
-            NSDistributedNotificationCenter *defaultCenter = [NSDistributedNotificationCenter defaultCenter];
-            [defaultCenter postNotificationName:AAPilotAppWillStart
-                                         object:nil
-                                       userInfo:@{@"bundleId":bundleId}];
-            sleep(2);
-            [CHSharedInstance(SBUIController) launchIcon:appIcon fromLocation:0];
-            sleep(2);
-            [defaultCenter postNotificationName:AAPilotAppStarted
-                                         object:nil
-                                       userInfo:@{@"bundleId":bundleId}];
+            SBApplicationIcon *appIcon = [CHAlloc(SBApplicationIcon) initWithApplication:app];
+
+            if (appIcon != nil) {
+                [defaultCenter postNotificationName:AAPilotAppWillStart
+                                             object:nil
+                                           userInfo:@{@"bundleId":bundleId}];
+                sleep(2);
+                [CHSharedInstance(SBUIController) launchIcon:appIcon fromLocation:0];
+                sleep(2);
+                [defaultCenter postNotificationName:AAPilotAppStarted
+                                             object:nil
+                                           userInfo:@{@"bundleId":bundleId}];
+            }
         });
     }
     return true;
