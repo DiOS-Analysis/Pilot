@@ -34,3 +34,6 @@ ${TWEAK_NAME}_FRAMEWORKS = CFNetwork Security CoreGraphics UIKit
 ${TWEAK_NAME}_PRIVATE_FRAMEWORKS = StoreServices SpringBoardUI
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+
+after-install::
+	install.exec "killall -9 SpringBoard"
