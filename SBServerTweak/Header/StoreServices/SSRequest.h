@@ -13,30 +13,37 @@
 
 @interface SSRequest : NSObject <SSXPCCoding>
 {
-    long long _backgroundTaskIdentifier;
-    _Bool _cancelAfterTaskExpiration;
+    int _backgroundTaskIdentifier;
+    BOOL _cancelAfterTaskExpiration;
     id <SSRequestDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSXPCConnection *_requestConnection;
     SSXPCConnection *_responseConnection;
 }
 
-@property(nonatomic) id <SSRequestDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_shutdownRequestWithMessageID:(long long)arg1;
+- (void)_beginBackgroundTask;
+@property(nonatomic) BOOL shouldCancelAfterTaskExpiration;
 - (void)__endBackgroundTask;
 - (void)__beginBackgroundTask;
+- (void)_shutdownRequestWithMessageID:(long long)arg1;
+- (id)_initSSRequest;
+- (BOOL)__shouldUseBackgroundTaskAssertions;
 //- (void)_startWithMessageID:(long long)arg1 messageBlock:(CDUnknownBlockType)arg2;
 - (void)_shutdownRequest;
-- (void)_endBackgroundTask;
-- (void)_beginBackgroundTask;
-@property(nonatomic) _Bool shouldCancelAfterTaskExpiration;
-//- (void)startWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (_Bool)start;
 - (void)disconnect;
-- (void)cancel;
-- (void)dealloc;
+- (BOOL)start;
+@property(nonatomic) id <SSRequestDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)init;
-- (id)_initSSRequest;
+- (void)dealloc;
+- (void)cancel;
+- (void)startWithCompletionBlock:(/*CDUnknownBlockType*/id)arg1;
+- (void)_endBackgroundTask;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

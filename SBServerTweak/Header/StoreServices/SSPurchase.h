@@ -8,75 +8,86 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSData, NSDictionary, NSMutableDictionary, NSNumber, NSString, SSDownloadPolicy, SSItem, SSItemOffer, SSNetworkConstraints, SSURLRequestProperties;
+@class NSArray, NSData, NSDictionary, NSMutableDictionary, SSDownloadPolicy, SSItem, SSItemOffer, SSNetworkConstraints, SSURLRequestProperties;
 
 @interface SSPurchase : NSObject <SSXPCCoding, NSCoding, NSCopying>
 {
     NSNumber *_accountIdentifier;
     NSString *_affiliateIdentifier;
-    _Bool _backgroundPurchase;
-    long long _batchIdentifier;
+    BOOL _backgroundPurchase;
+    int _batchIdentifier;
     NSString *_buyParameters;
-    _Bool _createsDownloads;
+    BOOL _createsDownloads;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    BOOL _displaysOnLockScreen;
     SSDownloadPolicy *_downloadPolicy;
     NSMutableDictionary *_downloadProperties;
     long long _expectedDownloadFileSize;
     NSArray *_filteredAssetTypes;
     NSArray *_gratisIdentifiers;
-    _Bool _ignoresForcedPasswordRestriction;
+    BOOL _ignoresForcedPasswordRestriction;
     SSItem *_item;
     SSItemOffer *_itemOffer;
     SSNetworkConstraints *_networkConstraints;
     long long _placeholderDownloadIdentifier;
+    BOOL _preauthenticated;
     SSURLRequestProperties *_requestProperties;
     id _requiredDeviceCapabilities;
     long long _uniqueIdentifier;
-    _Bool _usesLocalRedownloadParametersIfPossible;
+    BOOL _usesLocalRedownloadParametersIfPossible;
 }
 
++ (id)newPurchaseWithXPCEncoding:(id)arg1;
++ (id)newPurchaseWithDatabaseEncoding:(id)arg1;
 + (id)purchaseWithBuyParameters:(id)arg1;
+- (id)initWithItem:(id)arg1 offer:(id)arg2;
+@property(copy) SSNetworkConstraints *networkConstraints;
 - (void)setDownloadMetadata:(id)arg1;
 - (id)downloadMetadata;
-- (id)initWithXPCEncoding:(id)arg1;
-- (id)copyXPCEncoding;
-- (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)_setValuesUsingDatabaseEncoding:(id)arg1;
-- (void)_addEntriesToDatabaseEncoding:(id)arg1;
-@property _Bool usesLocalRedownloadParametersIfPossible;
-@property long long uniqueIdentifier;
-@property(copy) id requiredDeviceCapabilities;
+@property BOOL usesLocalRedownloadParametersIfPossible;
+@property(getter=isPreauthenticated) BOOL preauthenticated;
 @property long long placeholderDownloadIdentifier;
+- (void)setDefaultUserAgent:(id)arg1;
+@property int batchIdentifier;
 @property(copy) NSArray *gratisIdentifiers;
 @property long long expectedDownloadFileSize;
-- (void)setDefaultUserAgent:(id)arg1;
-@property long long batchIdentifier;
-- (id)itemOffer;
-- (id)item;
 @property(readonly) NSData *databaseEncoding;
 - (id)initWithDatabaseEncoding:(id)arg1;
+@property(copy) NSArray *filteredAssetTypes;
+@property(getter=isBackgroundPurchase) BOOL backgroundPurchase;
+@property BOOL ignoresForcedPasswordRestriction;
+@property BOOL displaysOnLockScreen;
+- (void)_addEntriesToDatabaseEncoding:(id)arg1;
+- (void)_setValuesUsingDatabaseEncoding:(id)arg1;
+- (id)_initSSPurchase;
+@property(nonatomic) BOOL createsDownloads;
+@property(copy) SSDownloadPolicy *downloadPolicy;
+- (id)itemOffer;
+@property(copy) id requiredDeviceCapabilities;
+@property(copy) NSString *affiliateIdentifier;
+@property(copy) SSURLRequestProperties *requestProperties;
+@property(retain) NSNumber *accountIdentifier;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+@property long long uniqueIdentifier;
+- (id)initWithItem:(id)arg1;
+- (id)item;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly) unsigned int hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)init;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)valueForDownloadProperty:(id)arg1;
 - (void)setValue:(id)arg1 forDownloadProperty:(id)arg2;
-@property(copy) SSURLRequestProperties *requestProperties;
-@property(copy) SSNetworkConstraints *networkConstraints;
-@property _Bool ignoresForcedPasswordRestriction;
-@property(copy) NSArray *filteredAssetTypes;
-@property(copy) NSDictionary *downloadProperties;
-@property(copy) SSDownloadPolicy *downloadPolicy;
-@property(nonatomic) _Bool createsDownloads;
 @property(copy) NSString *buyParameters;
-@property(getter=isBackgroundPurchase) _Bool backgroundPurchase;
-@property(copy) NSString *affiliateIdentifier;
-@property(retain) NSNumber *accountIdentifier;
-- (void)dealloc;
-- (id)initWithItem:(id)arg1 offer:(id)arg2;
-- (id)initWithItem:(id)arg1;
-- (id)init;
-- (id)_initSSPurchase;
+@property(copy) NSDictionary *downloadProperties;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

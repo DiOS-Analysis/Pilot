@@ -12,23 +12,36 @@
 
 @interface SSPurchaseResponse : NSObject <SSXPCCoding>
 {
-    _Bool _cancelsPurchaseBatch;
+    BOOL _cancelsPurchaseBatch;
     NSArray *_downloadIdentifiers;
     NSError *_error;
     SSPurchase *_purchase;
+    double _requestStartTime;
     SSURLConnectionResponse *_response;
+    double _responseEndTime;
+    double _responseStartTime;
     NSMutableDictionary *_transactionIdentifiers;
 }
 
 @property(retain, nonatomic) SSURLConnectionResponse *URLResponse; // @synthesize URLResponse=_response;
-@property(copy, nonatomic) SSPurchase *purchase; // @synthesize purchase=_purchase;
-@property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(copy, nonatomic) NSArray *downloadIdentifiers; // @synthesize downloadIdentifiers=_downloadIdentifiers;
-@property(nonatomic) _Bool cancelsPurchaseBatch; // @synthesize cancelsPurchaseBatch=_cancelsPurchaseBatch;
+@property(nonatomic) BOOL cancelsPurchaseBatch; // @synthesize cancelsPurchaseBatch=_cancelsPurchaseBatch;
+@property(nonatomic) double requestStartTime; // @synthesize requestStartTime=_requestStartTime;
+@property(nonatomic) double responseEndTime; // @synthesize responseEndTime=_responseEndTime;
+@property(nonatomic) double responseStartTime; // @synthesize responseStartTime=_responseStartTime;
+@property(copy, nonatomic) SSPurchase *purchase; // @synthesize purchase=_purchase;
+- (id)transactionIdentifierForItemIdentifier:(long long)arg1;
+- (id)responseMetrics;
+@property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
-- (id)transactionIdentifierForItemIdentifier:(long long)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

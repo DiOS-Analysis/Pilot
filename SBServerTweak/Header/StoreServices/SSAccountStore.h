@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class NSArray, NSMutableArray, SSAccount, SSKeyValueStore;
+@class SSAccount, SSKeyValueStore;
 
 @interface SSAccountStore : NSObject
 {
@@ -16,39 +16,40 @@
     NSMutableArray *_notifyTokens;
 }
 
-+ (void)setDefaultStore:(id)arg1;
-+ (void)resetExpirationForTokenType:(long long)arg1;
-+ (void)resetExpiration;
-+ (_Bool)isExpiredForTokenType:(long long)arg1;
-+ (_Bool)isExpired;
 + (id)existingDefaultStore;
++ (void)resetExpiration;
++ (void)setDefaultStore:(id)arg1;
 + (double)tokenExpirationInterval;
++ (void)resetExpirationForTokenType:(int)arg1;
++ (BOOL)isExpiredForTokenType:(int)arg1;
++ (BOOL)isExpired;
 + (id)defaultStore;
-- (void)_postAccountStoreChangeNotification;
-- (id)_keyValueStore;
-//- (void)_dispatchSync:(CDUnknownBlockType)arg1;
-//- (void)_dispatchAsync:(CDUnknownBlockType)arg1;
-- (void)signOutAllAccounts;
-- (void)signOutAccount:(id)arg1;
-//- (void)setDefaultAccountName:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)resetExpiration;
 - (id)setActiveLockerAccount:(SSAccount*)account;
 - (id)setActiveAccount:(SSAccount*)account;
+- (id)accountWithUniqueIdentifier:(id)arg1;
+- (void)signOutAllAccounts;
+- (void)_postAccountStoreChangeNotification;
+//- (void)_dispatchSync:(CDUnknownBlockType)arg1;
+//- (void)_dispatchAsync:(CDUnknownBlockType)arg1;
+//- (void)setDefaultAccountName:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)setAccountCredits:(id)arg1 forAccountWithUniqueIdentifier:(id)arg2;
-- (void)resetExpirationForTokenType:(long long)arg1;
-- (void)resetExpiration;
-- (void)reloadAccounts;
-- (_Bool)isExpiredForTokenType:(long long)arg1;
-@property(readonly, getter=isAuthenticationActive) _Bool authenticationActive;
+@property(readonly, getter=isAuthenticationActive) BOOL authenticationActive;
 //- (void)getDefaultAccountNameUsingBlock:(CDUnknownBlockType)arg1;
+- (id)accountWithUniqueIdentifier:(id)arg1 reloadIfNecessary:(BOOL)arg2;
+- (id)accountWithUniqueIdentifier:(id)arg1 scope:(int)arg2;
+- (void)resetExpirationForTokenType:(int)arg1;
+- (BOOL)isExpiredForTokenType:(int)arg1;
+- (id)_keyValueStore;
+- (void)signOutAccount:(id)arg1;
 - (id)addAccount:(id)arg1;
-- (id)accountWithUniqueIdentifier:(id)arg1 reloadIfNecessary:(_Bool)arg2;
-@property(readonly, getter=isExpired) _Bool expired;
+- (void)reloadAccounts;
+@property(readonly, copy) NSArray *accounts;
+@property(readonly, getter=isExpired) BOOL expired;
+- (id)init;
+- (void)dealloc;
 @property(readonly) SSAccount *activeLockerAccount;
 @property(readonly) SSAccount *activeAccount;
-- (id)accountWithUniqueIdentifier:(id)arg1;
-@property(readonly) NSArray *accounts;
-- (void)dealloc;
-- (id)init;
 
 @end
 

@@ -9,24 +9,22 @@
 #ifndef SBServerTweak_SSNotifications_h
 #define SBServerTweak_SSNotifications_h
 
+extern NSString *const kSSNotificationAuthenticateBegan;
+extern NSString *const kSSNotificationAuthenticateFailed;
+extern NSString *const kSSNotificationAuthenticateFinished;
+extern NSString *const kSSNotificationAuthenticateSubmitted;
 
-NSString *const SSNotificationDownloadsAdded = @"SSNotificationDownloadsAdded";
-NSString *const SSNotificationDownloadsChanged = @"SSNotificationDownloadsChanged";
-NSString *const SSNotificationDownloadsRemoved = @"SSNotificationDownloadsRemoved";
-NSString *const SSNotificationDownloadReplaced = @"SSNotificationDownloadReplaced";
-NSString *const SSNotificationDownloadStatusChanged = @"SSNotificationDownloadStatusChanged";
-
-// SSPurchaseRequest failed
-NSString *const SSNotificationPurchaseFailed = @"SSNotificationPurchaseFailed";
-
-// SSPurchaseRequest succeeded
-NSString *const SSNotificationPurchaseFinished = @"SSNotificationPurchaseFinished";
-
-// SSRequest failed
-NSString *const SSNotificationRequestFailed = @"SSNotificationRequestFailed";
-
-// SSRequest succeeded
-NSString *const SSNotificationRequestFinished = @"SSNotificationRequestFinished";
-
+extern NSString *const kSSNotificationApplicationInstalled;
+extern NSString *const kSSNotificationAutomaticDownloadKindsChanged;
+extern NSString *const kSSNotificationAutomaticDownloadSettingsChanged;
+extern NSString *const kSSNotificationDownloadMonitorChanged;
+extern NSString *const kSSNotificationInvalidateURLBags;
+extern NSString *const kSSNotificationNetworkTypeOverrideChanged;
+extern NSString *const kSSNotificationAccountsChanged;
+extern NSString *const kSSNotificationReceivedPushNotification;
+extern NSString *const kSSNotificationTriggerDownloads;
+extern NSString *const kSSNotificationUpdateQueueChanged;
+extern NSString *const kSSNotificationUpdatesStoreChanged;
+extern NSString *const kSSNotificationDownloadFinished;
 
 #endif

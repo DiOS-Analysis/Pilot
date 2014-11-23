@@ -6,6 +6,7 @@
 #import <StoreServices/SSPurchaseRequest.h>
 #import <StoreServices/SSAccountStore.h>
 #import <StoreServices/SSNotifications.h>
+#import <StoreServices/SSDownloadProperties.h>
 
 #import "SBSTAppStoreManager.h"
 #import "SBSTSpringBoardManager.h"
@@ -18,15 +19,6 @@
 #define SU_PROP_ARTIST_NAME @"d"
 #define SU_PROP_ARTWORK_URL @"G"
 
-#define SBST_INSTALL_FINSIHED_NOTIFICATION @"SBST_INSTALL_FINSIHED_NOTIFICATION"
-
-
-// notification bridge from CFNotification to NSNotification
-static void __install_callback(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
-    fprintf(stderr, "Install finished notification receiced");
-    [[NSNotificationCenter defaultCenter] postNotificationName:SBST_INSTALL_FINSIHED_NOTIFICATION
-                                                        object:nil];
-}
 
 @interface SBSTAppStoreManager()
 @property NSCondition *requestLock;
@@ -35,16 +27,6 @@ static void __install_callback(CFNotificationCenterRef center, void *observer, C
 
 @implementation SBSTAppStoreManager {
     void (^requestFinishedBlock)(NSString *error);
-}
-
-+ (void)initialize {
-    //Add CFNotification-workaround
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-                                    NULL,
-                                    __install_callback,
-                                    (CFStringRef)@"com.apple.itunesstored.application_installed",
-                                    NULL,
-                                    CFNotificationSuspensionBehaviorHold);
 }
 
 - (id)init {
@@ -72,11 +54,11 @@ static void __install_callback(CFNotificationCenterRef center, void *observer, C
     
     NSDictionary *keyMapping = @{
         SU_PROP_ITEM_TYPE:@"item-type",
-        SU_PROP_ARTWORK_URL:@"artwork-url",
-        SU_PROP_BUNDLE_ID:@"bundle-id",
-        SU_PROP_ARTIST_NAME:@"artist-name",
-        SU_PROP_ITEM_ID:@"item-id",
-        SU_PROP_ITEM_TITLE:@"item-title"
+        SSDownloadPropertyThumbnailImageURL:@"artwork-url",
+        SSDownloadPropertyBundleIdentifier:@"bundle-id",
+        SSDownloadPropertyArtistName:@"artist-name",
+        SSDownloadPropertyStoreItemIdentifier:@"item-id",
+        SSDownloadPropertyTitle:@"item-title"
     };
 
     SSPurchase *purchase = [[SSPurchase alloc] init];
@@ -108,11 +90,10 @@ static void __install_callback(CFNotificationCenterRef center, void *observer, C
     [purchaseReq setNeedsAuthentication:false];
 
     [purchaseReq setDelegate:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(_installFinished:)
-                                                 name:SBST_INSTALL_FINSIHED_NOTIFICATION
-                                               object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"SBInstalledApplicationsDidChangeNotification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        DDLogVerbose(@"SBInstalledApplicationsDidChangeNotification: %@", note);
+        [self _installFinished:nil];
+    }];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [_requestLock lock];

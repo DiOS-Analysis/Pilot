@@ -9,7 +9,7 @@
 @protocol SSXPCCoding <NSObject>
 
 @optional
-- (NSObject *)copyXPCEncoding;
-- (id)initWithXPCEncoding:(NSObject *)arg1;
+//- (NSObject<OS_xpc_object> *)copyXPCEncoding;
+//- (id)initWithXPCEncoding:(NSObject<OS_xpc_object> *)arg1;
 @end
 

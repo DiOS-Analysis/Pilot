@@ -13,40 +13,44 @@
 
 @interface SSPurchaseRequest : SSRequest <SSPurchaseManagerDelegate, SSXPCCoding>
 {
-    _Bool _isBackgroundRequest;
+    BOOL _isBackgroundRequest;
     NSArray *_purchases;
-    _Bool _shouldValidatePurchases;
 //    CDUnknownBlockType _completionBlock;
-    _Bool _createsDownloads;
+    BOOL _shouldValidatePurchases;
+    BOOL _createsDownloads;
     NSMutableSet *_openPurchaseIdentifiers;
 //    CDUnknownBlockType _purchaseBlock;
 //    CDUnknownBlockType _purchaseResponseBlock;
     SSPurchaseManager *_purchaseManager;
-    _Bool _needsAuthentication;
+    BOOL _needsAuthentication;
 }
 
-@property(nonatomic) _Bool shouldValidatePurchases; // @synthesize shouldValidatePurchases=_shouldValidatePurchases;
-@property(nonatomic) _Bool needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
-@property(nonatomic) _Bool createsDownloads; // @synthesize createsDownloads=_createsDownloads;
-@property(nonatomic, getter=isBackgroundRequest) _Bool backgroundRequest; // @synthesize backgroundRequest=_isBackgroundRequest;
+@property(nonatomic) BOOL shouldValidatePurchases; // @synthesize shouldValidatePurchases=_shouldValidatePurchases;
+@property(readonly) NSArray *purchases;
+@property(nonatomic) BOOL needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
+@property(nonatomic) BOOL createsDownloads; // @synthesize createsDownloads=_createsDownloads;
+@property(nonatomic, getter=isBackgroundRequest) BOOL backgroundRequest; // @synthesize backgroundRequest=_isBackgroundRequest;
+//- (void)startWithPurchaseBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)_purchaseForUniqueIdentifier:(long long)arg1;
 - (void)_finishPurchasesWithResponses:(id)arg1;
 - (void)_addPurchasesToManager;
-- (id)initWithXPCEncoding:(id)arg1;
-- (id)copyXPCEncoding;
-- (void)purchaseManager:(id)arg1 didFinishPurchasesWithResponses:(id)arg2;
-//- (void)startWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (_Bool)start;
-- (void)cancel;
 //- (void)startWithPurchaseResponseBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
-//- (void)startWithPurchaseBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
-@property(readonly) NSArray *purchases;
-- (void)dealloc;
 - (id)initWithPurchases:(id)arg1;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (BOOL)start;
 - (id)init;
+- (void)dealloc;
+- (void)cancel;
+- (void)purchaseManager:(id)arg1 didFinishPurchasesWithResponses:(id)arg2;
+- (void)startWithCompletionBlock:(void(^)())completionBlock;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 //@property(nonatomic) id <SSPurchaseRequestDelegate> delegate; // @dynamic delegate;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned int hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,7 +11,7 @@
 @protocol SSRequestDelegate <NSObject>
 
 @optional
-- (void)requestDidFinish:(SSRequest *)arg1;
-- (void)request:(SSRequest *)arg1 didFailWithError:(NSError *)arg2;
+- (void)requestDidFinish:(SSRequest *)request;
+- (void)request:(SSRequest *)request didFailWithError:(NSError *)error;
 @end
 
