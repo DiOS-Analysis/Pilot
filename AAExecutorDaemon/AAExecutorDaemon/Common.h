@@ -6,7 +6,7 @@
 #define sleepRunloop(duration) [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:duration]];
 
 
-#import "DDLog.h"
-#import "DDASLLogger.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = DDLogLevelVerbose;
+

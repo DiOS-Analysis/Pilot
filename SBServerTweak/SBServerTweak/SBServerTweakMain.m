@@ -17,6 +17,8 @@ CHMethod(1, void, UIApplication, setDelegate, id, delegate) {
 
 CHConstructor {
     @autoreleasepool {
+        [DDLog addLogger:[DDASLLogger sharedInstance]];
+
         NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
         
         DDLogInfo(@"SBServerTweak started: %@", bundleIdentifier);
