@@ -1,7 +1,7 @@
 Package: de.fau.cs.dios.pilot.sbservertweak
 Name: DiOS Controller
 Depends: mobilesubstrate, cycript, apt, sudo
-Version: 1.9.0
+Version: 2.0.0
 Architecture: iphoneos-arm
 Description: DiOS Automator SpringBoard Tweak. Allows app installation and execution using a HTTP REST API.
 Maintainer: Andreas Weinlein
