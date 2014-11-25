@@ -275,7 +275,7 @@ UIATarget *localTarget;
         
         
         // check for simple alerts (like permission requests) and handle them via generic handler
-        UIAAlert *alert = target.frontMostApp.alert;
+        UIAAlert *alert = target.frontMostApp.alertSync;
         int alertCounter = 0;
         while (alert != nil && [alert isKindOfClass:[UIAAlert class]]) {
             DDLogInfo(@"Alert: %@", alert);
@@ -295,7 +295,7 @@ UIATarget *localTarget;
                 }
                 sleep(1); // wait until the none-app alert has disappeared
             }
-            alert = target.frontMostApp.alert;
+            alert = target.frontMostApp.alertSync;
         }
         
         

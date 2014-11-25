@@ -27,6 +27,7 @@
 		E15D2CF116E755C500A7890F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102C23D169DDEF800612DC0 /* Foundation.framework */; };
 		E15D2D0C16E75ADD00A7890F /* UIAutomation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15D2D0A16E75AA600A7890F /* UIAutomation.framework */; };
 		E15D2D0F16E7A04B00A7890F /* AASmartExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E15D2D0E16E7A04B00A7890F /* AASmartExecutor.m */; };
+		E1630E1A1A228BEC00FC2F9A /* UIAApplication+Fixes.m in Sources */ = {isa = PBXBuildFile; fileRef = E1630E191A228BEC00FC2F9A /* UIAApplication+Fixes.m */; };
 		E18244EF171BF8C70095E774 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E102C24E169DE09800612DC0 /* main.mm */; };
 		E18244F2171BF8C70095E774 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A9422316BAB52F002F7EF7 /* NSData+Base64.m */; };
 		E18244F3171BF8C70095E774 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC62DA16E8CED40035B2C1 /* NSArray+Random.m */; };
@@ -107,7 +108,7 @@
 		E102C226169DC3E500612DC0 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		E102C235169DDE9100612DC0 /* Header */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Header; sourceTree = "<group>"; };
 		E102C236169DDE9E00612DC0 /* UIAutomation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIAutomation.framework; path = Frameworks/UIAutomation.framework; sourceTree = "<group>"; };
-		E102C23B169DDEF800612DC0 /* aaexecutord */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = aaexecutord; sourceTree = BUILT_PRODUCTS_DIR; };
+		E102C23B169DDEF800612DC0 /* aaexecutord */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = aaexecutord; sourceTree = BUILT_PRODUCTS_DIR; };
 		E102C23D169DDEF800612DC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E102C24E169DE09800612DC0 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		E102C252169DE0C700612DC0 /* AAAppExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAppExecutor.h; sourceTree = "<group>"; };
@@ -150,7 +151,9 @@
 		E15D2D0A16E75AA600A7890F /* UIAutomation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIAutomation.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/Developer/Library/PrivateFrameworks/UIAutomation.framework; sourceTree = DEVELOPER_DIR; };
 		E15D2D0D16E7A04B00A7890F /* AASmartExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASmartExecutor.h; sourceTree = "<group>"; };
 		E15D2D0E16E7A04B00A7890F /* AASmartExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASmartExecutor.m; sourceTree = "<group>"; };
-		E182450F171BF8C70095E774 /* aaexecutord copy */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = "aaexecutord copy"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1630E181A228BEC00FC2F9A /* UIAApplication+Fixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAApplication+Fixes.h"; sourceTree = "<group>"; };
+		E1630E191A228BEC00FC2F9A /* UIAApplication+Fixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAApplication+Fixes.m"; sourceTree = "<group>"; };
+		E182450F171BF8C70095E774 /* aaexecutord copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "aaexecutord copy"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1944169171F44C500DC4609 /* NSSet+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Random.h"; sourceTree = "<group>"; };
 		E194416A171F44C500DC4609 /* NSSet+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Random.m"; sourceTree = "<group>"; };
 		E195AF5316B9B1280065076C /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = AAExecutorDaemon/Common.h; sourceTree = "<group>"; };
@@ -307,12 +310,14 @@
 			children = (
 				E102C255169DE0E700612DC0 /* UIAutomation.h */,
 				E102C256169DE0E700612DC0 /* UIAutomation.m */,
-				E1069DC2170466BB0087C32E /* UIATarget+Fixes.h */,
-				E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */,
+				E1630E181A228BEC00FC2F9A /* UIAApplication+Fixes.h */,
+				E1630E191A228BEC00FC2F9A /* UIAApplication+Fixes.m */,
 				E1D620D4171BEA8D00CCF6C6 /* UIAElement+Fixes.h */,
 				E1D620D5171BEA8D00CCF6C6 /* UIAElement+Fixes.m */,
 				E121C9E617464603000FB1B9 /* UIAElementNil+Fixes.h */,
 				E121C9E717464603000FB1B9 /* UIAElementNil+Fixes.m */,
+				E1069DC2170466BB0087C32E /* UIATarget+Fixes.h */,
+				E1069DC3170466BB0087C32E /* UIATarget+Fixes.m */,
 				E1F964FE171EFEF7005AE592 /* UIACustomElementArray.h */,
 				E1F964FF171EFEF7005AE592 /* UIACustomElementArray.m */,
 			);
@@ -591,6 +596,7 @@
 				E1056E6F1700AC86000BCCB9 /* UIAElement+SmartExecution.m in Sources */,
 				E12445A5170D77EF00155157 /* AASEView.m in Sources */,
 				E12445A8170DB6A400155157 /* UIAElementArray+SmartExecution.m in Sources */,
+				E1630E1A1A228BEC00FC2F9A /* UIAApplication+Fixes.m in Sources */,
 				E111704B171337B700A3FCDF /* AASEElement.m in Sources */,
 				E1D620D6171BEA8D00CCF6C6 /* UIAElement+Fixes.m in Sources */,
 				E1F964FA171ED5E9005AE592 /* AASEOtherApplicationView.m in Sources */,

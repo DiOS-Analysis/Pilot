@@ -1,7 +1,7 @@
 DEBUG=1
 export DEBUG=1
 
-ARCHS=armv7
+ARCHS=armv7 arm64
 TARGET = iphone:latest:8.0
 
 CLANG = xcrun -sdk iphoneos clang

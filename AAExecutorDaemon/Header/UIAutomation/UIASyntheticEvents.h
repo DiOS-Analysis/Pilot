@@ -6,14 +6,31 @@
 
 #import "NSObject.h"
 
+@class UIScreen;
+
 @interface UIASyntheticEvents : NSObject
 {
+    _Bool _voiceOverStyleTouchEventsEnabled;
+    UIScreen *_screen;
+    double _gsScreenScale;
+//    CDStruct_3eca2549 *_activePoints;
+    unsigned long long _activePointCount;
     struct __IOHIDEventSystemClient *_ioSystemClient;
+    struct CGSize _screenSize;
+    struct CGSize _gsScreenSize;
+    struct CGRect _onScreenRect;
 }
 
 + (id)sharedEventGenerator;
-+ (void)initialize;
 @property(readonly) struct __IOHIDEventSystemClient *ioSystemClient; // @synthesize ioSystemClient=_ioSystemClient;
+@property(nonatomic) _Bool voiceOverStyleTouchEventsEnabled; // @synthesize voiceOverStyleTouchEventsEnabled=_voiceOverStyleTouchEventsEnabled;
+@property(nonatomic) unsigned long long activePointCount; // @synthesize activePointCount=_activePointCount;
+//@property(nonatomic) CDStruct_3eca2549 *activePoints; // @synthesize activePoints=_activePoints;
+@property(nonatomic) double gsScreenScale; // @synthesize gsScreenScale=_gsScreenScale;
+@property(nonatomic) struct CGSize gsScreenSize; // @synthesize gsScreenSize=_gsScreenSize;
+@property(nonatomic) struct CGSize screenSize; // @synthesize screenSize=_screenSize;
+@property(retain, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
+@property struct CGRect onScreenRect; // @synthesize onScreenRect=_onScreenRect;
 - (void)sendPinchCloseWithStartPoint:(struct CGPoint)arg1 endPoint:(struct CGPoint)arg2 duration:(double)arg3 inRect:(struct CGRect)arg4;
 - (void)sendPinchOpenWithStartPoint:(struct CGPoint)arg1 endPoint:(struct CGPoint)arg2 duration:(double)arg3 inRect:(struct CGRect)arg4;
 - (void)sendDragWithStartPoint:(struct CGPoint)arg1 endPoint:(struct CGPoint)arg2 duration:(double)arg3 withFlick:(_Bool)arg4 inRect:(struct CGRect)arg5;
@@ -26,7 +43,10 @@
 - (void)sendTaps:(int)arg1 location:(struct CGPoint)arg2 withNumberOfTouches:(int)arg3 inRect:(struct CGRect)arg4;
 - (void)sendDoubleFingerTap:(struct CGPoint)arg1;
 - (void)sendDoubleTap:(struct CGPoint)arg1;
+- (void)_sendTap:(struct CGPoint)arg1 withPressure:(double)arg2;
 - (void)sendTap:(struct CGPoint)arg1;
+- (void)_setMajorRadiusForAllPoints:(double)arg1;
+- (void)_setPressureForAllPoints:(double)arg1;
 - (void)moveToPoints:(struct CGPoint *)arg1 touchCount:(unsigned long long)arg2 duration:(double)arg3;
 - (void)_moveLastTouchPoint:(struct CGPoint)arg1;
 - (void)liftUp:(struct CGPoint)arg1;
@@ -50,10 +70,17 @@
 - (void)setOrientation:(int)arg1;
 - (void)sendAccelerometerX:(double)arg1 Y:(double)arg2 Z:(double)arg3 duration:(double)arg4;
 - (void)sendAccelerometerX:(double)arg1 Y:(double)arg2 Z:(double)arg3;
-- (void)_updateTouchPoints:(struct CGPoint *)arg1 count:(int)arg2;
-- (void)_sendHIDKeyboardEventPage:(unsigned int)arg1 usage:(unsigned int)arg2 duration:(double)arg3;
-//- (void)_sendHIDEvent:(struct __IOHIDEvent *)arg1;
+- (void)_updateTouchPoints:(struct CGPoint *)arg1 count:(unsigned long long)arg2;
+- (_Bool)_sendHIDVendorDefinedEvent:(unsigned int)arg1 usage:(unsigned int)arg2 data:(char *)arg3 dataLength:(unsigned int)arg4;
+- (_Bool)_sendHIDScrollEventX:(double)arg1 Y:(double)arg2 Z:(double)arg3;
+- (_Bool)_sendHIDKeyboardEventPage:(unsigned int)arg1 usage:(unsigned int)arg2 duration:(double)arg3;
+//- (_Bool)_sendHIDEvent:(struct __IOHIDEvent *)arg1;
+- (struct __IOHIDEvent *)_UIACreateIOHIDEventType:(unsigned int)arg1;
+- (_Bool)_isEdgePoint:(struct CGPoint)arg1;
+- (struct CGPoint)_normalizePoint:(struct CGPoint)arg1;
 - (void)dealloc;
+- (void)_initScreenProperties;
+- (id)init;
 
 @end
 

@@ -14,7 +14,10 @@
 #import <UIAutomation/UIAActionSheet.h>
 #import <UIAutomation/UIAActivityIndicator.h>
 #import <UIAutomation/UIAAlert.h>
-#import <UIAutomation/UIAApplication.h>
+
+//#import <UIAutomation/UIAApplication.h>
+#import "UIAApplication+Fixes.h"
+
 #import <UIAutomation/UIAButton.h>
 #import <UIAutomation/UIAEditingMenu.h>
 

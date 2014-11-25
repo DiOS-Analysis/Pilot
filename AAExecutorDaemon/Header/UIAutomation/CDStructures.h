@@ -39,3 +39,10 @@ typedef struct {
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
 
+typedef struct {
+    struct CGPoint _field1;
+    double _field2;
+    double _field3;
+    unsigned char _field4;
+} CDStruct_3eca2549;
+

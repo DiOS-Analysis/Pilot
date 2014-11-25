@@ -3,7 +3,6 @@
 //
 
 #import "UIAutomation.h"
-#import "UIATarget+Fixes.h"
 
 #import "Common.h"
 
@@ -160,11 +159,11 @@
 - (BOOL)openApplication:(NSString*)bundleId {
     
     // check for alert and wait until handling has finished
-    UIAAlert *alert = self.frontMostApp.alert;
+    UIAAlert *alert = self.frontMostApp.alertSync;
     while ([alert isKindOfClass:[UIAAlert class]]) {
         DDLogInfo(@"-[UIATarget openApplication:] waiting for alert handling.");
         sleep(1);
-        alert = self.frontMostApp.alert;
+        alert = self.frontMostApp.alertSync;
     }
     
     if ([bundleId compare:[self frontMostApp].bundleID] == NSOrderedSame) {

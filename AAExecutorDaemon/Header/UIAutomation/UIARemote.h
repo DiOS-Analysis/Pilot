@@ -14,6 +14,7 @@
 }
 
 + (id)sharedRemote;
+@property(readonly) UIASyntheticEvents *eventGenerator; // @synthesize eventGenerator=_eventGenerator;
 - (void)clickPlayPause;
 - (void)holdPlayPause:(double)arg1;
 - (void)clickMenu;

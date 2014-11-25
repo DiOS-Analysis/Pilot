@@ -58,7 +58,10 @@
 - (id)hasRemoteFocus;
 - (id)hasKeyboardFocus;
 - (id)isCameraIrisOpen;
+- (id)verticalSizeClass;
+- (id)horizontalSizeClass;
 - (id)isSelected;
+- (id)isStarkElement;
 - (id)isVisible;
 - (id)isEnabled;
 - (id)helpTag;
@@ -130,10 +133,11 @@
 - (id)buttons;
 - (id)activityIndicators;
 - (id)elements;
+- (id)accessibilityUI;
 - (id)scrollToElementWithValue:(id)arg1 forKey:(id)arg2;
 - (id)scrollToElementWithPredicate:(id)arg1;
 - (id)scrollToElementWithName:(id)arg1;
-- (void)scrollToVisible;
+- (id)scrollToVisible;
 - (void)scrollRight;
 - (void)scrollLeft;
 - (void)scrollDown;

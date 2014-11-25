@@ -26,7 +26,7 @@
 }
 
 + (id)_predicateForPredicateOrString:(id)arg1;
-+ (id)elementAtPosition:(NSValue*)point;
++ (UIAElement*)elementAtPosition:(struct CGPoint)point;
 + (id)elementForUIAXElement:(id)arg1;
 + (Class)_classForSimpleUIAXElement:(id)arg1;
 + (Class)_uiaClassForClassName:(id)arg1;
@@ -112,12 +112,12 @@
 - (UIAActionSheet*)actionSheet;
 - (UIAElementArray*)actionSheets;
 - (id)_elementsOfClass:(Class)arg1 forSelector:(SEL)arg2;
-- (UIAElementArray*)elements;
+- (id)elements;
 - (id)withPredicate:(id)arg1;
 - (id)withValue:(id)arg1 forKey:(id)arg2;
 - (id)withName:(id)arg1;
 - (id)responder;
-- (id)elementAtPoint:(NSValue*)point;
+- (UIAElement*)elementAtPoint:(NSValue*)point;
 - (id)_elementAtPosition:(struct CGPoint)arg1;
 - (id)_elementForUIAXElement:(id)arg1;
 - (id)_inspectedElementForAXAncestry:(id)arg1 index:(unsigned long long *)arg2 triedKeys:(id)arg3;
@@ -154,6 +154,7 @@
 - (void)dragInsideWithOptions:(id)arg1;
 - (void)_dragInsideWithOptions:(id)arg1 withFlick:(_Bool)arg2;
 - (void)touchAndHold:(id)arg1;
+- (void)touchWithOptions:(id)arg1;
 - (void)tapWithOptions:(id)arg1;
 - (void)twoFingerTap;
 - (void)doubleTap;
@@ -176,6 +177,9 @@
 - (CFBooleanRef)hasRemoteFocus;
 - (CFBooleanRef)hasKeyboardFocus;
 - (CFBooleanRef)isEnabled;
+- (id)verticalSizeClass;
+- (id)horizontalSizeClass;
+- (id)isStarkElement;
 - (id)_uiaHitpoint;
 - (NSValue*)hitpoint;
 - (id)_hitpoint;

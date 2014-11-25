@@ -45,7 +45,8 @@ static NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}
                 DDLogVerbose(@"Discovered AppleID within alert: %@", appleId);
                 NSString *password = [self _passwordForAppleId:appleId];
                 if (password != nil) {
-                    UIASecureTextField *passwordField = [alert.elements objectAtIndex:1].secureTextFields[0];
+                    UIAElement *elem = [alert.elements objectAtIndex:1];
+                    UIASecureTextField *passwordField = elem.secureTextFields[0];
                     [passwordField setValue:password];
                     sleep(1);
                     

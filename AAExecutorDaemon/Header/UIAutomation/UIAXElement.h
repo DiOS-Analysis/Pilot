@@ -19,11 +19,17 @@
 
 + (struct CGRect)_convertHostedViewFrame:(struct CGRect)arg1 forContextID:(id)arg2;
 + (struct CGPoint)_convertHostedCoordinates:(struct CGPoint)arg1 forContextID:(id)arg2;
++ (struct CGRect)_convertRectFromScreenToDevice:(struct CGRect)arg1;
++ (struct CGRect)_convertRectFromDeviceToScreen:(struct CGRect)arg1;
++ (struct CGPoint)_convertPointFromScreenToDevice:(struct CGPoint)arg1;
++ (struct CGPoint)_convertPointFromDeviceToScreen:(struct CGPoint)arg1;
 + (id)stringForTraits:(unsigned long long)arg1;
 + (id)stringForAXNotification:(int)arg1;
 + (id)stringForAXError:(int)arg1;
++ (id)uiaxAccessibilityUIServerElement;
 + (id)uiaxFocusedApplicationElement;
 + (id)uiaxSpringBoardElement;
++ (id)uiaxSystemApplicationElement;
 + (id)uiaxSystemWideElement;
 + (id)uiaxElementAtPosition:(struct CGPoint)arg1;
 + (id)uiaxApplicationAtPosition:(struct CGPoint)arg1;
@@ -54,7 +60,7 @@
 - (void)logAXTree;
 - (void)logAXAncestry;
 - (void)logAXInfo;
-- (_Bool)_hasNonzeroSize;
+- (_Bool)_hasNonzeroFrame;
 - (id)ancestry;
 - (id)descendantWithTestingTrait:(id)arg1;
 - (id)descendantsWithAttributes:(id)arg1 traits:(unsigned long long)arg2;

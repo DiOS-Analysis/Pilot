@@ -326,13 +326,13 @@ static UIATarget *localTarget;
             //check for alerts and wait until dismissed
             int counter = 0;
             while (
-                   //localTarget.frontMostApp.alert != nil &&
-                   ![localTarget.frontMostApp.alert isKindOfClass:[UIAElementNil class]]) {
-                DDLogVerbose(@"Waiting for alert being handled... (%@, nil?: %i)", localTarget.frontMostApp.alert, localTarget.frontMostApp.alert == nil);
+                   //localTarget.frontMostApp.alertSync != nil &&
+                   ![localTarget.frontMostApp.alertSync isKindOfClass:[UIAElementNil class]]) {
+                DDLogVerbose(@"Waiting for alert being handled... (%@, nil?: %i)", localTarget.frontMostApp.alertSync, localTarget.frontMostApp.alertSync == nil);
                 if (counter == 5) {
                     // it seems alert handling needs to be requested again
                     DDLogVerbose(@"Requesting alert handling again...");
-                    [[AAAlertManager sharedInstance] handleAlert:localTarget.frontMostApp.alert];
+                    [[AAAlertManager sharedInstance] handleAlert:localTarget.frontMostApp.alertSync];
                     counter = 0;
                 }
                 counter++;

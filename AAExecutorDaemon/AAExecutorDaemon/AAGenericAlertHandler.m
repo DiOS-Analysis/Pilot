@@ -21,7 +21,7 @@
 }
 
 - (BOOL)handleAlert:(UIAAlert *)alert {
-    DDLogVerbose(@"-[%@ handleAlert:]", self.class);
+    DDLogVerbose(@"-[%@ handleAlert:] %@", self.class, alert);
     BOOL alertHandlingDone = false;
     
     NSString *alertAppBundleId = UIATarget.localTarget.frontMostApp.bundleID;

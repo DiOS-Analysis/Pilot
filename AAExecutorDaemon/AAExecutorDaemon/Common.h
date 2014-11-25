@@ -8,5 +8,5 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
-static const int ddLogLevel = DDLogLevelVerbose;
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 

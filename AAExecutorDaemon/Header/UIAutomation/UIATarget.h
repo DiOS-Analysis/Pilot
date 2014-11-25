@@ -9,6 +9,7 @@
 #import <UIAutomation/UIAWindow.h>
 #import <UIAutomation/UIAApplication.h>
 #import <UIAutomation/UIAScreen.h>
+#import <UIAutomation/UIASyntheticStarkEvents.h>
 
 @class CLSimulationManager, NSDate, NSString, UIAHost;
 
@@ -24,6 +25,8 @@
     _Bool _logElementTakesScreenshot;
     _Bool _handlesAlerts;
     unsigned long long valueChangedCount;
+    UIASyntheticEvents *_eventGenerator;
+    UIASyntheticStarkEvents *_starkEventGenerator;
 }
 
 + (id)toManyRelationshipKeys;
@@ -31,6 +34,8 @@
 + (id)attributeKeys;
 + (id)_locationForObject:(id)arg1 withOptions:(id)arg2;
 + (UIATarget*)localTarget;
+@property(readonly) UIASyntheticStarkEvents *starkEventGenerator; // @synthesize starkEventGenerator=_starkEventGenerator;
+@property(readonly) UIASyntheticEvents *eventGenerator; // @synthesize eventGenerator=_eventGenerator;
 @property unsigned long long valueChangedCount; // @synthesize valueChangedCount;
 @property _Bool handlesAlerts; // @synthesize handlesAlerts=_handlesAlerts;
 @property _Bool logElementTakesScreenshot; // @synthesize logElementTakesScreenshot=_logElementTakesScreenshot;
@@ -95,12 +100,15 @@
 - (void)setPatience:(double)arg1;
 - (double)patience;
 - (id)uiaxSpringBoardElement;
+- (id)uiaxSystemAppElement;
 - (id)uiaxSystemWideElement;
 - (UIAElementArray*)elements;
 - (UIARemote*)remote;
 - (UIAScreen*)mainScreen;
 - (UIAApplication*)springboard;
 - (UIAApplication*)frontMostApp;
+- (id)accessibilityUI;
+- (id)systemApp;
 - (id)applicationAtPoint:(id)arg1;
 - (id)_applicationAtPosition:(struct CGPoint)arg1;
 - (NSArray*)applications;
@@ -109,8 +117,11 @@
 - (long long)textViewValueMaxLength;
 - (void)setTargetClipboard:(id)arg1;
 - (id)targetClipboard;
+- (void)captureStarkRect:(id)arg1 withName:(id)arg2;
 - (void)captureRect:(id)arg1 withName:(id)arg2;
+- (void)captureRect:(id)arg1 onScreen:(id)arg2 withName:(id)arg3;
 - (id)imageFromRect:(struct CGRect)arg1;
+- (void)captureStarkScreenWithName:(id)arg1;
 - (void)captureScreenWithName:(id)arg1;
 - (id)lastCommandTime;
 - (double)upTime;

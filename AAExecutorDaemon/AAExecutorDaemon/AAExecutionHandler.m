@@ -28,7 +28,7 @@
     [self _setupExecutor:executor];
     
     DDLogVerbose(@"[AAExecutionHandler] checking for active alerts prior to execution");
-    UIAAlert *alert = UIATarget.localTarget.frontMostApp.alert;
+    UIAAlert *alert = UIATarget.localTarget.frontMostApp.alertSync;
     while ([alert isKindOfClass:[UIAAlert class]] && alert.isVisibleBool) {
         DDLogWarn(@"[AAExecutionHandler] active alert detected. Requesting handling for: %@", alert);
         if (![[AAAlertManager sharedInstance] handleAlert:alert] && alert.isVisibleBool) {
@@ -36,7 +36,7 @@
             return false;
         }
         usleep(1500);
-        alert = UIATarget.localTarget.frontMostApp.alert;
+        alert = UIATarget.localTarget.frontMostApp.alertSync;
     }
     DDLogInfo(@"[AAExecutionHandler] starting execution with executor: %@", executor);
     return [executor startExecution];

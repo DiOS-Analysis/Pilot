@@ -57,8 +57,6 @@
 - (void)setPreferencesValue:(id)arg1 forKey:(id)arg2;
 - (id)isCameraIrisOpen;
 - (id)isVisible;
-- (id)stateDescription;
-- (unsigned int)_state;
 - (NSString*)bundleVersion;
 - (NSString*)version;
 - (id)localizedStringForKey:(id)arg1 withOptions:(id)arg2;
@@ -72,6 +70,9 @@
 - (NSString*)_name;
 - (NSString*)bundleID;
 - (NSString*)_bundleID;
+- (id)stateDescription;
+- (unsigned int)_state;
+- (_Bool)_isSystemApplication;
 - (void)_invalidate;
 - (void)dealloc;
 - (id)init;

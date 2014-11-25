@@ -5,13 +5,9 @@
 //
 
 #import "NSObject.h"
-#import <CoreGraphics/CoreGraphics.h>
 
+@protocol UIARecorderDelegate;
 @class NSArray, NSMutableString, NSTimer, UIARecorderAction, UIATarget, UIAXElement;
-@protocol UIARecorderDelegate <NSObject>
-//TODO
-@end
-
 
 @interface UIARecorder : NSObject
 {
