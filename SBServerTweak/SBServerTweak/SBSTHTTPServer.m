@@ -162,7 +162,8 @@
                                    withAccountForUniqueIdentifier:accountIdentifier]) {
                             responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
                             responseDict[RESPONSE_MESSAGE] = @"Install failed";
-                            
+                            [self _setTaskFinished];
+
                         } else {
                             responseDict[RESPONSE_MESSAGE] = @"Install successfull";
                             // task will be set finished via _AppStoreRequestFinished
