@@ -41,7 +41,7 @@ CHDeclareClass(SBAlertItemsController)
                                              object:nil
                                            userInfo:@{@"bundleId":bundleId}];
                 sleep(2);
-                [CHSharedInstance(SBUIController) launchIcon:appIcon fromLocation:0];
+                [CHSharedInstance(SBUIController) launchIcon:appIcon fromLocation:0 context:nil];
                 sleep(2);
                 [defaultCenter postNotificationName:AAPilotAppStarted
                                              object:nil
