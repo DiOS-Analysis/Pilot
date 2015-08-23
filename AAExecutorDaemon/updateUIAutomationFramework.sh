@@ -8,7 +8,7 @@ dev_image=`find "$ios_platform_path/DeviceSupport" -regex ".*$ios_version.*/Deve
 dev_image_mountpoint="/Volumes/DeveloperDiskImage"
 
 script_path=`dirname $0`
-framework_path="$script_path/layout/Library/PrivateFrameworks"
+framework_path="$script_path/layout/Library/PrivateFrameworks/"
 
 if [ ! -f "$dev_image" ]
 then
