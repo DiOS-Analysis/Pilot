@@ -10,20 +10,19 @@
 
 @interface SBApplicationIcon //: SBLeafIcon
 {
-    NSString *_displayIdentifier;
+    UIImage *_cachedSquareHomeScreenContentsImage;
 }
 
-- (id)applicationBundleID;
++ (id)_squareHomeScreenIconImagesMemoryPool;
 - (id)folderFallbackTitle;
 - (id)folderTitleOptions;
 - (void)setBadge:(id)arg1;
 - (id)automationID;
 - (id)tags;
 - (id)getUnmaskedIconImage:(int)arg1;
+- (id)__loadUnmaskedIconImageForFormat:(int)arg1;
 - (id)generateIconImage:(int)arg1;
-- (_Bool)canGenerateImageInBackgroundForFormat:(int)arg1;
 //- (void)generateIconImageInBackground:(CDUnknownBlockType)arg1;
-//- (CDUnknownBlockType)blockForGeneratingIconImageInBackgroundWithFormat:(int)arg1;
 //- (CDUnknownBlockType)_blockForGeneratingIconImageInBackgroundWithFormat:(int)arg1 complete:(CDUnknownBlockType)arg2;
 - (id)__loadIconImageForDataSource:(id)arg1 format:(int)arg2;
 - (id)application;

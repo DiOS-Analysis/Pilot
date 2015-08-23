@@ -6,17 +6,17 @@
 
 #import "SBAlertItem.h"
 
-@class BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, SBUISound;
+@class BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, SBUISound, UIViewController, _SBRemoteAlertContentHostViewController;
 
 @interface SBUserNotificationAlert : SBAlertItem
 {
     unsigned int _replyPort;
     NSObject<OS_dispatch_source> *_portWatcher;
     NSObject<OS_dispatch_source> *_expirationTimer;
-    _Bool _cleanedUp;
+    BOOL _cleanedUp;
     int _token;
     int _timeout;
-    unsigned long long _requestFlags;
+    unsigned long _requestFlags;
     NSString *_alertHeader;
     id _alertMessage;
     NSString *_alertMessageDelimiter;
@@ -24,6 +24,9 @@
     NSString *_alternateButtonTitle;
     NSString *_otherButtonTitle;
     NSString *_soundPath;
+    unsigned long _soundID;
+    unsigned long _soundIDBehavior;
+    NSDictionary *_vibrationPattern;
     NSDictionary *_avControllerAttributes;
     NSDictionary *_avItemAttributes;
     double _soundRepeatDuration;
@@ -37,15 +40,18 @@
     id _textFieldValues;
     id _textFieldButtonDisplayTitles;
     id _textFieldButtonDisplayDefaultButtonTitles;
-    long long _currentTextFieldButtonDisplayIndex;
+    int _currentTextFieldButtonDisplayIndex;
     double _creationTime;
     int _defaultButtonTag;
     int _unlockActionButtonTag;
     unsigned int _replyFlags;
-    long long _defaultButtonIndex;
-    long long _alternateButtonIndex;
-    long long _otherButtonIndex;
+    int _defaultButtonIndex;
+    int _alternateButtonIndex;
+    int _otherButtonIndex;
     NSString *_defaultResponseLaunchBundleID;
+    NSString *_remoteViewControllerClassName;
+    NSString *_remoteServiceBundleIdentifier;
+    _SBRemoteAlertContentHostViewController *_contentViewControllerForAlertController;
     unsigned int _cancel:1;
     unsigned int _isActivated:1;
     unsigned int _aboveLock:1;
@@ -58,13 +64,18 @@
     unsigned int _oneButtonPerLine:1;
     unsigned int _groupsTextFields:1;
     unsigned int _usesUndoStyle:1;
+    unsigned int _dismissesOverlaysOnLockScreen:1;
     unsigned int _configuredLocked:1;
     unsigned int _configuredNeedsPasscode:1;
     unsigned int _defaultResponseAppLaunchWaitingForPasscode:1;
     SBUISound *_sound;
     BKSProcessAssertion *_processAssertion;
+    unsigned int _dismissesAutomatically:1;
 }
 
+@property(retain) UIViewController *contentViewControllerForAlertController; // @synthesize contentViewControllerForAlertController=_contentViewControllerForAlertController;
+@property(retain) NSString *remoteServiceBundleIdentifier; // @synthesize remoteServiceBundleIdentifier=_remoteServiceBundleIdentifier;
+@property(retain) NSString *remoteViewControllerClassName; // @synthesize remoteViewControllerClassName=_remoteViewControllerClassName;
 @property(retain) NSString *defaultResponseLaunchBundleID; // @synthesize defaultResponseLaunchBundleID=_defaultResponseLaunchBundleID;
 @property(retain) NSString *otherButtonTitle; // @synthesize otherButtonTitle=_otherButtonTitle;
 @property(retain) NSString *alternateButtonTitle; // @synthesize alternateButtonTitle=_alternateButtonTitle;
@@ -74,6 +85,9 @@
 @property(retain) NSString *alertHeader; // @synthesize alertHeader=_alertHeader;
 @property(retain) NSDictionary *avItemAttributes; // @synthesize avItemAttributes=_avItemAttributes;
 @property(retain) NSDictionary *avControllerAttributes; // @synthesize avControllerAttributes=_avControllerAttributes;
+@property(retain) NSDictionary *vibrationPattern; // @synthesize vibrationPattern=_vibrationPattern;
+@property unsigned long soundIDBehavior; // @synthesize soundIDBehavior=_soundIDBehavior;
+@property unsigned long soundID; // @synthesize soundID=_soundID;
 @property(retain) NSString *soundPath; // @synthesize soundPath=_soundPath;
 @property(retain) id textFieldButtonDisplayDefaultButtonTitles; // @synthesize textFieldButtonDisplayDefaultButtonTitles=_textFieldButtonDisplayDefaultButtonTitles;
 @property(retain) id textFieldButtonDisplayTitles; // @synthesize textFieldButtonDisplayTitles=_textFieldButtonDisplayTitles;
@@ -88,27 +102,29 @@
 - (void)didDeactivateForReason:(int)arg1;
 - (void)willDeactivateForReason:(int)arg1;
 - (void)noteVolumeOrLockPressed;
-- (_Bool)reappearsAfterUnlock;
-- (_Bool)reappearsAfterLock;
-- (_Bool)forcesModalAlertAppearance;
-- (_Bool)behavesSuperModally;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
-- (_Bool)alertView:(id)arg1 shouldDismissForButtonAtIndex:(long long)arg2;
+- (BOOL)reappearsAfterUnlock;
+- (BOOL)reappearsAfterLock;
+- (BOOL)_dismissesOverlaysOnLockScreen;
+- (BOOL)dismissesAutomatically;
+- (BOOL)forcesModalAlertAppearance;
+- (BOOL)behavesSuperModally;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (BOOL)alertView:(id)arg1 shouldDismissForButtonAtIndex:(int)arg2;
 - (void)performUnlockAction;
-- (_Bool)_needsDismissalWithClickedButtonIndex:(long long)arg1;
+- (BOOL)_needsDismissalWithClickedButtonIndex:(int)arg1;
 - (void)_sendResponse:(int)arg1;
 - (void)_textFieldButtonPressed:(id)arg1;
 - (void)_setSheetDefaultButtonTitle:(id)arg1;
 - (void)cancel;
 - (void)_cleanup;
-- (void)_setActivated:(_Bool)arg1;
-- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
+- (void)_setActivated:(BOOL)arg1;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (id)sound;
 - (void)willActivate;
-- (_Bool)displayActionButtonOnLockScreen;
-- (_Bool)allowMenuButtonDismissal;
-- (_Bool)dismissOnLock;
-- (_Bool)shouldShowInLockScreen;
+- (BOOL)displayActionButtonOnLockScreen;
+- (BOOL)allowMenuButtonDismissal;
+- (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
 - (int)token;
 - (Class)alertSheetClass;
 - (void)dealloc;

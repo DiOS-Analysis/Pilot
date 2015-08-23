@@ -57,6 +57,7 @@
 - (void)_deviceBlockedChanged:(id)arg1;
 - (void)_deviceLockedChanged:(id)arg1;
 - (BOOL)attemptUnlockWithPasscode:(id)arg1;
+- (BOOL)_attemptUnlockWithPasscode:(id)arg1 finishUIUnlock:(BOOL)arg2;
 - (void)startUIUnlockFromSource:(int)arg1 withOptions:(id)arg2;
 - (void)_postLockCompletedNotification:(BOOL)arg1;
 - (void)_removeDisableUnlockAssertion:(id)arg1;
@@ -64,6 +65,7 @@
 - (void)updateSpringBoardStatusBarForLockScreenTeardown;
 - (void)cancelApplicationRequestedDeviceLockEntry;
 - (void)applicationRequestedDeviceUnlock;
+- (BOOL)isLockScreenDisabledForAssertion;
 - (void)removeLockScreenDisableAssertion:(id)arg1;
 - (void)addLockScreenDisableAssertion:(id)arg1;
 - (void)_handleExternalUIUnlock:(id)arg1;
