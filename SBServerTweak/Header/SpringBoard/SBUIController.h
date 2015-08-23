@@ -264,7 +264,7 @@
 - (void)_lockOrientationForTransition;
 - (void)activateApplicationAnimatedFromIcon:(id)arg1 fromLocation:(int)arg2;
 - (void)activateApplicationAnimated:(id)arg1;
-- (void)launchIcon:(id)arg1 fromLocation:(int)arg2;
+- (void)launchIcon:(id)arg1 fromLocation:(int)arg2 context:(id)arg3;
 //- (void)getRotationContentSettings:(CDStruct_3421d26a *)arg1 forWindow:(id)arg2;
 - (id)window;
 - (id)contentView;

@@ -34,6 +34,7 @@
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
+- (void)refreshVisiblityOverrides;
 - (void)applicationService:(id)arg1 setNextWakeDate:(id)arg2 forBundleIdentifier:(id)arg3;
 //- (void)applicationService:(id)arg1 getBadgeValueForBundleIdentifier:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)applicationService:(id)arg1 setBadgeValue:(id)arg2 forBundleIdentifier:(id)arg3;

@@ -31,10 +31,11 @@
     FBProcessState *_processState;
     FBApplicationProcess *_process;
     NSString *_displayName;
+    NSString *_carDisplayName;
     NSArray *_tags;
     UIRemoteApplication *_remoteApplication;
     unsigned int _monitoringLocaleAndTimeChanges:1;
-    NSSet *_alertSuppressionContexts;
+    NSDictionary *_alertSuppressionContextsBySectionIdentifier;
     unsigned int _doingBackgroundNetworking:16;
     unsigned int _failedLaunchCount:8;
     unsigned int _isSystemProvisioningApplication:1;
@@ -116,6 +117,7 @@
     float _minimumBrightnessLevel;
     NSArray *_domainsToPreheat;
     int _starkLaunchModes;
+    NSSet *_starkProtocols;
     int _defaultStarkStatusBarStyle;
     NSMutableDictionary *_alertImpersonatorsByWorkspaceType;
     unsigned int _isRecentlyUpdated:3;
@@ -131,6 +133,7 @@
     BOOL _shouldShowUserNotificationPermissionAlert;
     BOOL _useLaunchStoryboardOrNib;
     BOOL _alwaysLaunchesFullScreen;
+    BOOL _isWatchApp;
     BOOL _reachabilitySupported;
 }
 
@@ -165,7 +168,7 @@
 - (id)sceneIdentifierForDisplay:(id)arg1;
 - (BOOL)canAccessDisplay:(id)arg1;
 - (BOOL)canAccessScreen:(id)arg1;
-- (BOOL)icon:(id)arg1 launchFromLocation:(int)arg2;
+- (BOOL)icon:(id)arg1 launchFromLocation:(int)arg2 context:(id)arg3;
 - (BOOL)iconAllowsLaunch:(id)arg1;
 - (BOOL)iconCompleteUninstall:(id)arg1;
 - (BOOL)iconAllowsUninstall:(id)arg1;
@@ -183,7 +186,7 @@
 - (id)icon:(id)arg1 defaultImageWithFormat:(int)arg2;
 - (id)icon:(id)arg1 imageWithFormat:(int)arg2;
 - (unsigned int)iconPriority:(id)arg1;
-- (id)iconDisplayName:(id)arg1;
+- (id)iconDisplayName:(id)arg1 forLocation:(int)arg2;
 - (void)_noteIconDataSourceDidChange;
 - (void)_removeAlertImpersonator:(id)arg1;
 - (void)_setAlertImpersonator:(id)arg1 forWorkspaceType:(int)arg2;
@@ -191,7 +194,7 @@
 - (BOOL)_hasAnyAlertImpersonator;
 - (BOOL)supportsStarkAudio;
 - (BOOL)supportsStarkGateKeeper;
-- (BOOL)supportsStarkFullScreen;
+- (BOOL)supportsStarkFullScreenForConfiguration:(id)arg1;
 - (id)domainsToPreheat;
 @property(readonly, copy) NSString *description;
 - (id)transitionContext;
@@ -200,6 +203,7 @@
 - (BOOL)isRecordingAudio;
 - (BOOL)suppressesControlCenter;
 - (BOOL)suppressesNotificationCenter;
+- (BOOL)_hasBooleanYesEntitlement:(id)arg1;
 - (BOOL)suppressesBanners;
 - (float)minimumBrightnessLevel;
 - (BOOL)showSystemVolumeHUDForCategory:(id)arg1;
@@ -361,6 +365,7 @@
 - (void)_updateApplicationWakeTimers;
 - (void)setApplicationNextWakeDate:(id)arg1;
 - (id)applicationNextWakeDate;
+- (BOOL)classicAppLegacyStatusBar;
 - (BOOL)classicDefaultStatusBarHidden;
 - (BOOL)classicAppZoomedInOrRequiresHiDPI;
 - (BOOL)classicAppFullScreen;
@@ -440,7 +445,7 @@
 - (int)ratingRank;
 - (BOOL)isBeingDebugged;
 - (void)setBeingDebugged:(BOOL)arg1;
-- (void)setDisplayName:(id)arg1;
+- (id)carDisplayName;
 - (id)displayName;
 - (Class)iconClass;
 - (id)_preferredImagePathInBundle:(id)arg1 baseResourceName:(id)arg2 ofType:(id)arg3 forMainScene:(BOOL)arg4 size:(struct CGSize)arg5 scale:(float)arg6 outScale:(float *)arg7;
@@ -477,8 +482,8 @@
 - (void)setHasShownDataPlanAlertSinceLock:(BOOL)arg1;
 - (BOOL)hasShownDataPlanAlertSinceLock;
 - (int)dataUsage;
-- (void)setAlertSuppressionContexts:(id)arg1;
-- (id)alertSuppressionContexts;
+- (BOOL)shouldSuppressAlertForSuppressionContexts:(id)arg1 sectionIdentifier:(id)arg2;
+- (void)setAlertSuppressionContextsBySectionIdentifier:(id)arg1;
 - (void)setHasMiniAlerts:(BOOL)arg1;
 - (BOOL)hasMiniAlerts;
 - (id)tags;
@@ -502,7 +507,7 @@
 - (void)_assignDefaultLaunchImages:(id)arg1 forScreenType:(int)arg2;
 - (void)dealloc;
 - (id)initWithApplicationInfo:(id)arg1 bundle:(id)arg2 infoDictionary:(id)arg3;
-- (void)_configureDisplayNameForBundleAtPath:(id)arg1;
+- (void)_configureNameForBundleAtPath:(id)arg1 infoDictionary:(id)arg2;
 - (struct CGRect)snapshotFrameAdjustedForClassicBasedOnFrame:(struct CGRect)arg1 insideBounds:(struct CGRect)arg2 withStatusBarHeight:(float)arg3 andDefaultPNGSize:(struct CGSize)arg4 forOrientation:(int)arg5;
 - (id)_screenFromSceneID:(id)arg1;
 - (void)_noteSnapshotDidUpdate:(int)arg1;
