@@ -154,7 +154,7 @@
 		E1BD0BAC1A1E930300FC2F9A /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DDLog+LOGV.h"; path = "../Common/CocoaLumberjack/Classes/DDLog+LOGV.h"; sourceTree = SOURCE_ROOT; };
 		E1BD0BAD1A1E930300FC2F9A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = ../Common/CocoaLumberjack/Classes/DDTTYLogger.h; sourceTree = SOURCE_ROOT; };
 		E1BD0BAE1A1E930300FC2F9A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = ../Common/CocoaLumberjack/Classes/DDTTYLogger.m; sourceTree = SOURCE_ROOT; };
-		E1BD0BB41A1E94AA00FC2F9A /* DDLegacy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DDLegacy.h; path = ../Common/CocoaLumberjack/Classes/DDLegacy.h; sourceTree = SOURCE_ROOT; };
+		E1BD0BB41A1E94AA00FC2F9A /* DDLegacyMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DDLegacyMacros.h; path = ../Common/CocoaLumberjack/Classes/DDLegacyMacros.h; sourceTree = SOURCE_ROOT; };
 		E1BD0BB51A1E994500FC2F9A /* CocoaLumberjack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = ../Common/CocoaLumberjack/Classes/CocoaLumberjack.h; sourceTree = "<group>"; };
 		E1C45696176A21D5006DCD80 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -366,7 +366,7 @@
 				E1BD0BA71A1E930300FC2F9A /* DDASLLogger.h */,
 				E1BD0BA81A1E930300FC2F9A /* DDASLLogger.m */,
 				E1BD0BA91A1E930300FC2F9A /* DDAssertMacros.h */,
-				E1BD0BB41A1E94AA00FC2F9A /* DDLegacy.h */,
+				E1BD0BB41A1E94AA00FC2F9A /* DDLegacyMacros.h */,
 				E1BD0BAA1A1E930300FC2F9A /* DDLog.h */,
 				E1BD0BAB1A1E930300FC2F9A /* DDLog.m */,
 				E1BD0BAC1A1E930300FC2F9A /* DDLog+LOGV.h */,
@@ -437,7 +437,7 @@
 		E1119066162FFC0900AAB2A7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Andreas Weinlein";
 			};
 			buildConfigurationList = E1119069162FFC0900AAB2A7 /* Build configuration list for PBXProject "SBServerTweak" */;
@@ -516,6 +516,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -561,7 +562,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"\"../Common/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
@@ -583,7 +584,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"\"../Common/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
