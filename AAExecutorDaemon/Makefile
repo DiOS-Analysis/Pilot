@@ -33,6 +33,7 @@ ${TOOL_NAME}_CFLAGS += -I../Common/NSData+Base64
 ${TOOL_NAME}_LDFLAGS = -lstdc++ -F./Frameworks -lAAClientLib -lCCGraphT -LAAExecutorDaemon
 
 ${TOOL_NAME}_FRAMEWORKS = UIKit CoreGraphics
-${TOOL_NAME}_PRIVATE_FRAMEWORKS = UIAutomation
+# PrivateFrameworks
+${TOOL_NAME}_FRAMEWORKS = UIAutomation
 
 include $(THEOS_MAKE_PATH)/tool.mk

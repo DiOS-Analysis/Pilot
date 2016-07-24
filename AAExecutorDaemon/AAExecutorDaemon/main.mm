@@ -192,13 +192,9 @@ int main(int argc, char **argv, char **envp) {
         
         NSRunLoop *runLoop = [NSRunLoop mainRunLoop];
 
-        NSTimer *timer = [[NSTimer alloc] initWithFireDate:[NSDate date]
-                                                  interval:5*60
-                                                    target:nil
-                                                  selector:@selector(keepLoopRunning:)
-                                                  userInfo:nil
-                                                   repeats:YES];
-        
+        NSTimer *timer = [NSTimer timerWithTimeInterval:5*60
+                                             invocation:[[NSInvocation alloc] init]
+                                                repeats:YES];
         [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
         DDLogInfo(@"entering runloop");
         [runLoop run];
