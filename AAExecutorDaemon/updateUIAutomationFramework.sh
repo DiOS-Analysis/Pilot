@@ -2,7 +2,7 @@
 
 ios_platform_path=`xcrun --sdk iphoneos --show-sdk-platform-path`
 ios_version=`xcrun --sdk iphoneos --show-sdk-platform-version`
-ios_version="8.4"
+ios_version="9.0"
 
 dev_image=`find "$ios_platform_path/DeviceSupport" -regex ".*$ios_version.*/DeveloperDiskImage.dmg"`
 dev_image_mountpoint="/Volumes/DeveloperDiskImage"

@@ -1,7 +1,8 @@
 DEBUG=1
 export DEBUG=1
+#MESSAGES=1
 
-TARGET = iphone:latest:8.0
+TARGET = iphone:latest:9.0
 #export ARCHS="armv7"
 
 CLANG = xcrun -sdk iphoneos clang
