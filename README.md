@@ -10,7 +10,7 @@ The `AAClientLib` is a static library that simplifies the development of DiOS an
 
 
 ## Requirements
-  * theos (installed to `/opt/theos`) <https://github.com/DHowett/theos>
+  * theos (installed to `/opt/theos`) <https://github.com/theos/theos>
 
 
 See [Initial Setup](https://github.com/DiOS-Analysis/DiOS/wiki/Initial-Setup) and [Running DiOS](https://github.com/DiOS-Analysis/DiOS/wiki/Running-DiOS) for detailed build and setup instructions.
