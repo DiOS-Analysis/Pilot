@@ -31,7 +31,9 @@ ${TWEAK_NAME}_CFLAGS += ${${TWEAK_NAME}_INCLUDES}
 ${TWEAK_NAME}_LDFLAGS =  -lstdc++ -read_only_relocs suppress
 
 ${TWEAK_NAME}_FRAMEWORKS = CFNetwork Security CoreGraphics UIKit
-${TWEAK_NAME}_PRIVATE_FRAMEWORKS = StoreServices SpringBoardUI
+# PrivateFrameworks
+${TWEAK_NAME}_LDFLAGS = -F../Common/PrivateFrameworks
+${TWEAK_NAME}_FRAMEWORKS = StoreServices SpringBoardUI
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
