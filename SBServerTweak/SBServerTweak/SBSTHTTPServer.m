@@ -139,7 +139,7 @@
                 if ([accIdVal isKindOfClass:[NSNumber class]]) {
                     accountIdentifier = accIdVal;
                 } else if ([accIdVal isKindOfClass:[NSString class]]) {
-                    accountIdentifier = @([accIdVal integerValue]);
+                    accountIdentifier = @([accIdVal longLongValue]);
                 }
                 DDLogVerbose(@"accountIdentifier: %@", accountIdentifier);
                 if ([accountIdentifier isEqualToNumber:@0]) {
