@@ -26,6 +26,15 @@
                 sleep(5);
             } else {
                 DDLogError(@"Execution aborted! - Unable to make app frontmost again!");
+                DDLogInfo(@"Trying to perform workaround for iOS 9");
+                //simulate tapping to the screen center
+                UIATarget* localTarget = [UIATarget localTarget];
+                CGSize screenSize = [localTarget.rect CGRectValue].size;
+                CGPoint point;
+                point.x = screenSize.width / 2;
+                point.y = screenSize.height / 2;
+                [localTarget tap:[NSValue valueWithCGPoint:point]];
+                sleep(5);
             }
             [self setExecutionFinished];
         }];
