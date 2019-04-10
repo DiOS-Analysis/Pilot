@@ -11,6 +11,7 @@ The `AAClientLib` is a static library that simplifies the development of DiOS an
 
 ## Requirements
   * theos (installed to `/opt/theos`) <https://github.com/theos/theos>
+  * Clutch2 (installed on jailbroken device to `/usr/bin`) <https://github.com/KJCracks/Clutch>
 
 
 See [Initial Setup](https://github.com/DiOS-Analysis/DiOS/wiki/Initial-Setup) and [Running DiOS](https://github.com/DiOS-Analysis/DiOS/wiki/Running-DiOS) for detailed build and setup instructions.
