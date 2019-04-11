@@ -428,106 +428,82 @@
         [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
     }];
 
-    [self.http post:@"/archive" withBlock:^(RouteRequest *request, RouteResponse *response) {
+    [self.http get:@"/archive/:bundleId" withBlock:^(RouteRequest *request, RouteResponse *response) {
         NSMutableDictionary *responseDict = [self _defaultResponseDict];
 
-        NSData *requestBody = request.body;
         NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:9];
-        if (requestBody==nil) {
+
+        NSString *bundleId = [request param:@"bundleId"];;
+        if ([bundleId length] == 0) {
             responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-            responseDict[RESPONSE_MESSAGE] = @"empty request";
-        } else {
-            NSError *error;
-            NSDictionary *requestDict = [NSJSONSerialization JSONObjectWithData:requestBody
-                                                                        options:0
-                                                                         error:&error];
-            DDLogVerbose(@"RequestDict: %@", requestDict);
-            DDLogVerbose(@"Error: %@", error);
-
-            NSString *bundleId = requestDict[@"bundleId"];
-            if ([bundleId length] == 0) {
-                responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-                responseDict[RESPONSE_MESSAGE] = @"bundleId missing";
-                [self sendResponse:response dict:responseDict];
-                return;
-            }
-
-            if ([self getApplicationInfo:info bundleId:bundleId] == NO) {
-                responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-                responseDict[RESPONSE_MESSAGE] = @"Cannot get app info";
-                [self sendResponse:response dict:responseDict];
-                return;
-            }
-
-            if (info[@"BUNDLE_PATH"]) {
-                NSString *cmd = [NSString stringWithFormat:@"%@; %@; %@; cp -r %@/*.app/ Payload/; cp %@/iTunes* .; %@; %@; %@%@.ipa", 
-                                                            @"mkdir /tmp/apparchive",
-                                                            @"cd /tmp/apparchive",
-                                                            @"mkdir Payload",
-                                                            info[@"BUNDLE_PATH"],
-                                                            info[@"BUNDLE_PATH"],
-                                                            @"zip -r tmp Payload/ iTunes*",
-                                                            @"rm -R Payload/ iTunes*",
-                                                            @"mv tmp.zip /tmp/apparchive/",
-                                                            info[@"APP_ID"]];
-                NSString *cmd2 = [NSString stringWithFormat:@"cd /var/root; DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib '%@/%@'", info[@"APP_PATH"], info[@"EXECUTABLE"]];
-		    	[SBSTShellExecutor runCommand:cmd2];
-                DDLogVerbose(@"CMD: %@", cmd);
-                NSDictionary *result = [SBSTShellExecutor runCommand:cmd];
-                DDLogVerbose(@"Result: %@", result);
-                responseDict[@"file"] = [NSString stringWithFormat:@"/tmp/apparchive/%@.ipa", info[@"APP_ID"]];
-
-                [response setHeader:@"Content-Type" value:@"application/json"];
-            } else {
-                responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-                responseDict[RESPONSE_MESSAGE] = @"Bundle not found";
-            }
+            responseDict[RESPONSE_MESSAGE] = @"bundleId missing";
             [self sendResponse:response dict:responseDict];
+            return;
         }
-    }];
 
-    [self.http post:@"/archive/decrypted" withBlock:^(RouteRequest* request, RouteResponse* response) {
-        NSMutableDictionary *responseDict = [self _defaultResponseDict];
-
-        NSData *requestBody = request.body;
-        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:9];
-        if (requestBody == nil) {
+        if ([self getApplicationInfo:info bundleId:bundleId] == NO) {
             responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-            responseDict[RESPONSE_MESSAGE] = @"empty request";
-        } else {
-            NSError *error;
-            NSDictionary *requestDict = [NSJSONSerialization JSONObjectWithData:requestBody
-                                                                        options:0
-                                                                         error:&error];
-            DDLogVerbose(@"RequestDict: %@", requestDict);
-            DDLogVerbose(@"Error: %@", error);
+            responseDict[RESPONSE_MESSAGE] = @"Cannot get app info";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
 
-            NSString *bundleId = requestDict[@"bundleId"];
-            if ([bundleId length] == 0) {
-                responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-                responseDict[RESPONSE_MESSAGE] = @"bundleId missing";
-                [self sendResponse:response dict:responseDict];
-                return;
-            }
-
-            if ([self getApplicationInfo:info bundleId:bundleId] == NO) {
-                responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
-                responseDict[RESPONSE_MESSAGE] = @"Cannot get app info";
-                [self sendResponse:response dict:responseDict];
-                return;
-            }
-
-            NSString *cmd = [NSString stringWithFormat:@"%@; sudo Clutch2 -d %2$@; %@; mv /var/mobile/Documents/Dumped/%2$@* /tmp/apparchive/%2$@.ipa", 
+        if (info[@"BUNDLE_PATH"]) {
+            NSString *cmd = [NSString stringWithFormat:@"%@; %@; %@; cp -r %@/*.app/ Payload/; cp %@/iTunes* .; %@; %@; %@%@.ipa", 
                                                         @"mkdir /tmp/apparchive",
-                                                        bundleId,
-                                                        @"sudo chown mobile -R /var/mobile/Documents/Dumped"];
+                                                        @"cd /tmp/apparchive",
+                                                        @"mkdir Payload",
+                                                        info[@"BUNDLE_PATH"],
+                                                        info[@"BUNDLE_PATH"],
+                                                        @"zip -r tmp Payload/ iTunes*",
+                                                        @"rm -R Payload/ iTunes*",
+                                                        @"mv tmp.zip /tmp/apparchive/",
+                                                        info[@"APP_ID"]];
+            NSString *cmd2 = [NSString stringWithFormat:@"cd /var/root; DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib '%@/%@'", info[@"APP_PATH"], info[@"EXECUTABLE"]];
+            [SBSTShellExecutor runCommand:cmd2];
             DDLogVerbose(@"CMD: %@", cmd);
-            system([cmd UTF8String]);
-
+            NSDictionary *result = [SBSTShellExecutor runCommand:cmd];
+            DDLogVerbose(@"Result: %@", result);
             responseDict[@"file"] = [NSString stringWithFormat:@"/tmp/apparchive/%@.ipa", info[@"APP_ID"]];
 
             [response setHeader:@"Content-Type" value:@"application/json"];
+        } else {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"Bundle not found";
         }
+        [self sendResponse:response dict:responseDict];
+    }];
+
+    [self.http get:@"/archive/decrypted/:bundleId" withBlock:^(RouteRequest* request, RouteResponse* response) {
+        NSMutableDictionary *responseDict = [self _defaultResponseDict];
+
+        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:9];
+
+        NSString *bundleId = [request param:@"bundleId"];
+        if ([bundleId length] == 0) {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"bundleId missing";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
+
+        if ([self getApplicationInfo:info bundleId:bundleId] == NO) {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"Cannot get app info";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
+
+        NSString *cmd = [NSString stringWithFormat:@"%@; sudo Clutch2 -d %2$@; %@; mv /var/mobile/Documents/Dumped/%2$@* /tmp/apparchive/%2$@.ipa", 
+                                                    @"mkdir /tmp/apparchive",
+                                                    bundleId,
+                                                    @"sudo chown mobile -R /var/mobile/Documents/Dumped"];
+        DDLogVerbose(@"CMD: %@", cmd);
+        system([cmd UTF8String]);
+
+        responseDict[@"file"] = [NSString stringWithFormat:@"/tmp/apparchive/%@.ipa", info[@"APP_ID"]];
+
+        [response setHeader:@"Content-Type" value:@"application/json"];
         [self sendResponse:response dict:responseDict];
     }];
 
