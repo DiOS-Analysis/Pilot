@@ -3,14 +3,41 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import <MobileCoreServices/LSApplicationProxy.h>
+#import <objc/runtime.h>
+#import <FrontBoard/FBApplicationInfo.h>
 #import "SBSTHTTPServer.h"
 #import "Common.h"
+
+@interface LSApplicationWorkspace : NSObject
+- (BOOL)applicationIsInstalled:(NSString *)appIdentifier;
+@end
+
+@interface LSApplicationProxy : NSObject
+
+@property(readonly) NSString* applicationIdentifier;
+@property(readonly) NSString * bundleVersion;
+@property(readonly) NSString * bundleExecutable;
+@property(readonly) NSArray * deviceFamily;
+@property(readonly) NSURL * bundleContainerURL;
+@property(readonly) NSString * bundleIdentifier;
+@property(readonly) NSURL * bundleURL;
+@property(readonly) NSURL * containerURL;
+@property(readonly) NSURL * dataContainerURL;
+@property(readonly) NSString * localizedShortName;
+@property(readonly) NSString * localizedName;
+@property(readonly) NSString * shortVersionString;
+
++ (LSApplicationProxy*)applicationProxyForIdentifier:(id)appIdentifier;
+
+@end
 
 #import "SBSTAppStoreManager.h"
 #import "SBSTCydiaStoreManager.h"
 #import "SBSTSpringBoardManager.h"
 #import "SBSTCycriptExecutor.h"
 #import "SBSTAppExecutionManager.h"
+#import "SBSTShellExecutor.h"
 
 #define HTTP_CODE_BAD_REQUEST @400
 #define HTTP_CODE_LOCKED @423
@@ -97,18 +124,69 @@
 
 #pragma mark The routes
 
+- (void)sendResponse:(RouteResponse*)response dict:(NSDictionary*)responseDict {
+    if ([responseDict objectForKey:RESPONSE_CODE]) {
+        [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+    }
+    [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
+                                                              options:0
+                                                                error:nil]];
+}
+
+- (BOOL)getApplicationInfo:(NSMutableDictionary*)info bundleId:(NSString*)bundleId {
+    Class LSApplicationWorkspace_class = objc_getClass("LSApplicationWorkspace");
+    if (LSApplicationWorkspace_class == nil) {
+        return NO;
+    }
+
+    LSApplicationWorkspace *workspace = [LSApplicationWorkspace_class 
+                                                performSelector:@selector(defaultWorkspace)];
+    if (workspace == nil || [workspace applicationIsInstalled:bundleId] == NO) {
+        return NO;
+    }
+
+    Class LSApplicationProxy_class = objc_getClass("LSApplicationProxy");
+    if (LSApplicationProxy_class == nil) {
+        return NO;
+    }
+
+    LSApplicationProxy *app = [LSApplicationProxy_class applicationProxyForIdentifier:bundleId];
+    if (app == nil) {
+        return NO;
+    }
+
+    FBApplicationInfo *appInfo = app;
+    if (appInfo == nil) {
+        return NO;
+    }
+
+    [info setObject:(NSObject*)app.bundleIdentifier forKey:@"APP_ID"];
+    [info setObject:(NSString*)[app.bundleContainerURL path] forKey:@"BUNDLE_PATH"];
+    [info setObject:(NSString*)[app.bundleURL path] forKey:@"APP_PATH"];
+    [info setObject:(NSString*)[app.dataContainerURL path] forKey:@"DATA_PATH"];
+    [info setObject:(NSString*)app.bundleVersion forKey:@"VERSION"];
+    [info setObject:(NSString*)app.shortVersionString forKey:@"SHORT_VERSION"];
+    [info setObject:(NSString*)app.localizedName forKey:@"NAME"];
+    [info setObject:(NSString*)app.localizedShortName forKey:@"DISPLAY_NAME"];
+    [info setObject:(NSString*)appInfo.bundleExecutable forKey:@"EXECUTABLE"];
+
+    return YES;
+}
+
 - (void)setupRoutes {
     [self.http get:@"/status" withBlock:^(RouteRequest *request, RouteResponse *response) {
-        [response respondWithData:[NSJSONSerialization dataWithJSONObject:statusDict
+        /*[response respondWithData:[NSJSONSerialization dataWithJSONObject:statusDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]];*/ //TODO
+        [self sendResponse:response dict:statusDict];
     }];
     
     [self.http get:@"/applications" withBlock:^(RouteRequest *request, RouteResponse *response) {
         NSDictionary *responseDict = [SBSTSpringBoardManager applicationInfo];
-        [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
+        /*[response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]];*/
+        [self sendResponse:response dict:responseDict];
     }];
     
     [self.http post:@"/install/appstore" withBlock:^(RouteRequest *request, RouteResponse *response) {
@@ -177,10 +255,11 @@
         }
         
         
-        [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+        /* [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
         [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]]; */
+        [self sendResponse:response dict:responseDict];
     }];
     
     [self.http post:@"/install/cydia" withBlock:^(RouteRequest *request, RouteResponse *response) {
@@ -218,10 +297,11 @@
                 responseDict[RESPONSE_CODE] = HTTP_CODE_LOCKED;
             }
         }
-        [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+        /* [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
         [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]]; */
+        [self sendResponse:response dict:responseDict];
     }];
     
     
@@ -246,10 +326,11 @@
                 responseDict[RESPONSE_MESSAGE] = @"A task is already running";
             }
         }
-        [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+        /* [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
         [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]]; */
+        [self sendResponse:response dict:responseDict];
     }];
     
     
@@ -285,10 +366,11 @@
                 responseDict[RESPONSE_MESSAGE] = @"A task is already running";
             }
         }
-        [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+        /* [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
         [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]]; */
+        [self sendResponse:response dict:responseDict];
     }];
 
     
@@ -329,10 +411,11 @@
                 }
             }
         }
-        [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+        /* [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
         [response respondWithData:[NSJSONSerialization dataWithJSONObject:responseDict
                                                                   options:0
-                                                                    error:nil]];
+                                                                    error:nil]]; */
+        [self sendResponse:response dict:responseDict];
     }];
     
     
@@ -343,6 +426,85 @@
         [self _setTaskFinished];
         
         [response setStatusCode:[responseDict[RESPONSE_CODE] integerValue]];
+    }];
+
+    [self.http get:@"/archive/:bundleId" withBlock:^(RouteRequest *request, RouteResponse *response) {
+        NSMutableDictionary *responseDict = [self _defaultResponseDict];
+
+        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:9];
+
+        NSString *bundleId = [request param:@"bundleId"];;
+        if ([bundleId length] == 0) {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"bundleId missing";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
+
+        if ([self getApplicationInfo:info bundleId:bundleId] == NO) {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"Cannot get app info";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
+
+        if (info[@"BUNDLE_PATH"]) {
+            NSString *cmd = [NSString stringWithFormat:@"%@; %@; %@; cp -r %@/*.app/ Payload/; cp %@/iTunes* .; %@; %@; %@%@.ipa", 
+                                                        @"mkdir /tmp/apparchive",
+                                                        @"cd /tmp/apparchive",
+                                                        @"mkdir Payload",
+                                                        info[@"BUNDLE_PATH"],
+                                                        info[@"BUNDLE_PATH"],
+                                                        @"zip -r tmp Payload/ iTunes*",
+                                                        @"rm -R Payload/ iTunes*",
+                                                        @"mv tmp.zip /tmp/apparchive/",
+                                                        info[@"APP_ID"]];
+            NSString *cmd2 = [NSString stringWithFormat:@"cd /var/root; DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib '%@/%@'", info[@"APP_PATH"], info[@"EXECUTABLE"]];
+            [SBSTShellExecutor runCommand:cmd2];
+            DDLogVerbose(@"CMD: %@", cmd);
+            NSDictionary *result = [SBSTShellExecutor runCommand:cmd];
+            DDLogVerbose(@"Result: %@", result);
+            responseDict[@"file"] = [NSString stringWithFormat:@"/tmp/apparchive/%@.ipa", info[@"APP_ID"]];
+
+            [response setHeader:@"Content-Type" value:@"application/json"];
+        } else {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"Bundle not found";
+        }
+        [self sendResponse:response dict:responseDict];
+    }];
+
+    [self.http get:@"/archive/decrypted/:bundleId" withBlock:^(RouteRequest* request, RouteResponse* response) {
+        NSMutableDictionary *responseDict = [self _defaultResponseDict];
+
+        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:9];
+
+        NSString *bundleId = [request param:@"bundleId"];
+        if ([bundleId length] == 0) {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"bundleId missing";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
+
+        if ([self getApplicationInfo:info bundleId:bundleId] == NO) {
+            responseDict[RESPONSE_CODE] = HTTP_CODE_BAD_REQUEST;
+            responseDict[RESPONSE_MESSAGE] = @"Cannot get app info";
+            [self sendResponse:response dict:responseDict];
+            return;
+        }
+
+        NSString *cmd = [NSString stringWithFormat:@"%@; sudo Clutch2 -d %2$@; %@; mv /var/mobile/Documents/Dumped/%2$@* /tmp/apparchive/%2$@.ipa", 
+                                                    @"mkdir /tmp/apparchive",
+                                                    bundleId,
+                                                    @"sudo chown mobile -R /var/mobile/Documents/Dumped"];
+        DDLogVerbose(@"CMD: %@", cmd);
+        system([cmd UTF8String]);
+
+        responseDict[@"file"] = [NSString stringWithFormat:@"/tmp/apparchive/%@.ipa", info[@"APP_ID"]];
+
+        [response setHeader:@"Content-Type" value:@"application/json"];
+        [self sendResponse:response dict:responseDict];
     }];
 
 }
